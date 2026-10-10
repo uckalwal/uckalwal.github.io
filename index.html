@@ -216,17 +216,18 @@
             }
 
             @page {
-                size: A4;
-                margin: 0; 
+                size: auto;
+                margin: 0;
             }
 
             .form-container { 
-                margin: 0 auto !important; 
-                box-shadow: none !important; 
-                width: 210mm !important; 
-                height: 297mm !important; 
-                max-height: 297mm !important; 
-                overflow: hidden !important; 
+                margin: 4mm auto !important;
+                box-shadow: none !important;
+                width: calc(100vw - 8mm) !important;
+                height: calc(100vh - 8mm) !important;
+                min-height: 0 !important;
+                max-height: none !important;
+                overflow: visible !important; 
                 display: flex !important;
                 flex-direction: column !important;
                 box-sizing: border-box !important;
