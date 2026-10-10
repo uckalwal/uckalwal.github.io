@@ -206,6 +206,7 @@
             #main-content {
                 padding: 0;
                 overflow: visible;
+                background-color: #fff !important;
             }
 
             .form-section {
@@ -216,7 +217,7 @@
             }
 
             @page {
-                size: auto;
+                size: A4 portrait;
                 margin: 5mm;
             }
 
@@ -233,7 +234,7 @@
                 box-sizing: border-box !important;
                 page-break-after: avoid;
                 page-break-inside: avoid;
-                zoom: 0.90;
+                zoom: var(--form-print-zoom, 0.84);
             }
 
             #birth-form-container { padding: 6mm 7mm; border: 4px double #000; justify-content: space-between; }
@@ -916,6 +917,28 @@
             reader.readAsText(file);
             event.target.value = ""; 
         }
+
+        // Adapt only the printed page to the real font metrics on this computer.
+        // The screen layout, Urdu fonts, input fields, and form data stay unchanged.
+        function fitActiveFormForPrint() {
+            const form = document.querySelector('.form-section.active .form-container');
+            if (!form) return;
+
+            // Measure the complete form at its original CSS size, including
+            // declarations and footer that may overflow a fixed-height box.
+            form.style.setProperty('--form-print-zoom', '1');
+            const originalHeight = Math.max(form.scrollHeight, form.offsetHeight);
+            const pageHeightPx = 264 * (96 / 25.4); // Fits A4, and Letter if selected.
+            const zoom = Math.min(0.94, pageHeightPx / Math.max(1, originalHeight));
+            form.style.setProperty('--form-print-zoom', Math.max(0.25, zoom).toFixed(4));
+        }
+
+        window.addEventListener('beforeprint', fitActiveFormForPrint);
+        window.addEventListener('afterprint', function () {
+            document.querySelectorAll('.form-container').forEach(form => {
+                form.style.removeProperty('--form-print-zoom');
+            });
+        });
     </script>
 </body>
 </html>
