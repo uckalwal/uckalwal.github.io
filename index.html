@@ -216,17 +216,18 @@
             }
 
             @page {
-                size: A4;
-                margin: 0; 
+                size: A4 portrait;
+                margin: 5mm;
             }
 
             .form-container { 
                 margin: 0 auto !important; 
                 box-shadow: none !important; 
-                width: 210mm !important; 
-                height: 297mm !important; 
-                max-height: 297mm !important; 
-                overflow: hidden !important; 
+                width: 200mm !important;
+                height: 287mm !important;
+                min-height: 0 !important;
+                max-height: none !important;
+                overflow: visible !important; 
                 display: flex !important;
                 flex-direction: column !important;
                 box-sizing: border-box !important;
@@ -234,8 +235,17 @@
                 page-break-inside: avoid;
             }
 
-            #birth-form-container { padding: 8mm 10mm; border: 4px double #000; justify-content: space-between; }
-            #death-form-container { padding: 6mm 10mm; border: 2px solid #000; justify-content: space-between; }
+            #birth-form-container { padding: 6mm 7mm; border: 4px double #000; justify-content: space-between; }
+            #death-form-container { padding: 3mm 7mm; border: 2px solid #000; justify-content: space-between; font-size: 14px; --input-fs: 14px; }
+            /* Keep all death-form fields, declarations and the footer on one A4 sheet. */
+            #death-form-container .form-row { margin-bottom: 2px !important; }
+            #death-form-container .cnic-row { margin-bottom: 2px !important; }
+            #death-form-container .mt-4 { margin-top: 5px !important; }
+            #death-form-container .mt-2 { margin-top: 4px !important; }
+            #death-form-container .mb-4 { margin-bottom: 6px !important; }
+            #death-form-container p { line-height: 1.15 !important; }
+            #death-form-container .print-footer { padding-top: 1px; padding-bottom: 1px; }
+            #death-form-container .footer-box { padding: 2px 12px; font-size: 13px; }
             
             p { line-height: 1.3 !important; }
             .form-list > li { margin-bottom: 0 !important; }
