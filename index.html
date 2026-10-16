@@ -273,6 +273,75 @@
             }
         }
     </style>
+<style>
+/* UC_A4_PRINT_FIX_V1 — appended after the site's existing CSS */
+/* Screen layout stays unchanged. Only the selected form is printed. */
+.print-fit-inner { display: contents; }
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  html, body {
+    width: 210mm !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    display: block !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #sidebar, .controls-bar, .no-print { display: none !important; }
+  #main-content {
+    width: 210mm !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  .form-section { display: none !important; }
+  .form-section.active { display: block !important; }
+  .form-container,
+  #birth-form-container,
+  #death-form-container {
+    position: relative !important;
+    display: block !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 6mm 9mm !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    break-after: avoid !important;
+  }
+  #birth-form-container { border: 4px double #000 !important; }
+  #death-form-container { border: 2px solid #000 !important; }
+  .print-fit-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    min-height: 0 !important;
+    height: var(--print-inner-height, auto) !important;
+    width: var(--print-inner-width, 100%) !important;
+    zoom: var(--print-zoom, 1);
+    transform: none !important;
+    overflow: visible !important;
+  }
+  .form-container input,
+  .form-container textarea { background: transparent !important; }
+  .print-footer { display: block !important; }
+}
+
+</style>
 </head>
 <body>
 
@@ -916,5 +985,67 @@
             event.target.value = ""; 
         }
     </script>
+<script>
+/* UC_A4_PRINT_FIX_V1 — fit printed content within a single A4 page. */
+(function () {
+  'use strict';
+  function wrapFormContents() {
+    document.querySelectorAll('#birth-form-container, #death-form-container').forEach(function (paper) {
+      if (paper.querySelector(':scope > .print-fit-inner')) return;
+      var inner = document.createElement('div');
+      inner.className = 'print-fit-inner';
+      while (paper.firstChild) inner.appendChild(paper.firstChild);
+      paper.appendChild(inner);
+    });
+  }
+  function fitCurrentFormToA4() {
+    wrapFormContents();
+    var paper = document.querySelector('.form-section.active > .form-container');
+    if (!paper) return;
+    var inner = paper.querySelector(':scope > .print-fit-inner');
+    if (!inner) return;
+    var cs = window.getComputedStyle(paper);
+    var available = paper.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 7;
+    if (!Number.isFinite(available) || available <= 0) return;
+    function setZoom(z) {
+      inner.style.setProperty('--print-zoom', String(z));
+      inner.style.setProperty('--print-inner-width', '100%');
+      inner.style.setProperty('--print-inner-height', 'auto');
+      void inner.offsetHeight;
+      return inner.getBoundingClientRect().height;
+    }
+    // Binary-search for the largest readable scale that keeps all fields,
+    // affidavit sections and the office footer inside the A4 boundary.
+    var low = 0.18;
+    var high = 1.0;
+    if (setZoom(high) <= available) {
+      low = high;
+    } else {
+      for (var i = 0; i < 13; i++) {
+        var mid = (low + high) / 2;
+        if (setZoom(mid) <= available) low = mid;
+        else high = mid;
+      }
+    }
+    var fit = Math.max(0.18, Math.min(1, low - 0.006));
+    inner.style.setProperty('--print-zoom', String(fit));
+    inner.style.setProperty('--print-inner-width', '100%');
+    inner.style.setProperty('--print-inner-height', (available / fit) + 'px');
+    // Record for diagnostics in browsers without altering any form data.
+    paper.setAttribute('data-print-fit', fit.toFixed(3));
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wrapFormContents);
+  } else {
+    wrapFormContents();
+  }
+  window.addEventListener('beforeprint', fitCurrentFormToA4);
+  if (window.matchMedia) {
+    var mq = window.matchMedia('print');
+    if (mq.addEventListener) mq.addEventListener('change', function (e) { if (e.matches) fitCurrentFormToA4(); });
+  }
+})();
+
+</script>
 </body>
 </html>
