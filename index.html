@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Original Jameel Noori Nastaleeq for GitHub Pages (Local + Online CDN Fallback) */
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
             src: local('Jameel Noori Nastaleeq'),
@@ -23,7 +22,6 @@
             font-display: swap;
         }
 
-        /* Root-level A4 Page Rule for Zero Overflow in Chrome/Edge Print */
         @page {
             size: A4 portrait;
             margin: 0mm;
@@ -43,23 +41,21 @@
             font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', Arial, sans-serif;
             background-color: #e5e7eb;
             color: #000;
-            line-height: 1.38; 
-            font-size: 15px; 
+            line-height: 1.35; 
+            font-size: 14px; 
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: row-reverse; /* Sidebar on Right */
+            flex-direction: row-reverse;
             height: 100vh;
             overflow: hidden;
         }
 
         .english-text {
             font-family: Arial, sans-serif !important;
-            font-size: 13.5px;
-            line-height: 1.2;
+            font-size: 13px;
         }
 
-        /* --- Sidebar Styles --- */
         #sidebar {
             width: 250px;
             background-color: #1f2937;
@@ -80,7 +76,6 @@
             text-align: center;
             border-bottom: 1px solid #4b5563;
             padding-bottom: 10px;
-            line-height: 1.6;
         }
 
         .sidebar-btn {
@@ -97,7 +92,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            line-height: 1.5;
         }
 
         .sidebar-btn:hover {
@@ -109,7 +103,6 @@
             font-weight: bold;
         }
 
-        /* --- Main Content Area --- */
         #main-content {
             flex-grow: 1;
             overflow-y: auto;
@@ -133,26 +126,24 @@
             align-items: center;
         }
 
-        /* A4 Page Sheet Wrapper (Keeps form centered at any scale) */
-        .a4-page-wrapper {
+        .a4-sheet-center {
             width: 210mm;
             min-height: 297mm;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 12px auto;
+            margin: 10px auto;
         }
 
-        /* --- Form Container Shared Styles --- */
         .form-container {
             direction: rtl;
             background-color: #ffffff;
             width: 198mm;
-            height: 285mm;
-            min-height: 285mm;
-            max-height: 285mm;
+            height: 282mm;
+            min-height: 282mm;
+            max-height: 282mm;
             margin: 0 auto;
-            padding: 5.5mm 9mm; 
+            padding: 4mm 8mm; 
             border: 2px solid #374151;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
             display: flex;
@@ -164,13 +155,12 @@
             transition: transform 0.15s ease;
         }
 
-        /* Variables for inputs to control font size individually per form */
         #birth-form-container { 
-            --input-fs: 15px; 
-            border: 5px double #374151; 
+            --input-fs: 14px; 
+            border: 4px double #374151; 
         }
         #death-form-container { 
-            --input-fs: 14.5px; 
+            --input-fs: 13.5px; 
         }
 
         .bold-inputs .line-input,
@@ -182,18 +172,16 @@
             border: none;
             background: transparent;
             outline: none;
-            padding: 0 4px;
+            padding: 0 2px;
             font-family: inherit;
             color: inherit;
             text-align: center; 
-            transition: font-size 0.2s;
             min-width: 0; 
             width: 100%;
-            height: 24px;
-            line-height: 22px;
+            height: 22px;
+            line-height: 20px;
         }
 
-        /* Specific border styles for inputs based on form type */
         #birth-form-container .line-input { border-bottom: 1px dashed #000; font-size: var(--input-fs) !important; }
         #death-form-container .line-input { border-bottom: 1px solid #000; font-size: var(--input-fs) !important; }
         
@@ -203,17 +191,16 @@
         }
 
         .cnic-box {
-            width: 21px;
-            height: 23px;
+            width: 20px;
+            height: 22px;
             border: 1px solid #000;
             text-align: center;
             outline: none;
             margin: 0 1px;
             font-family: Arial, sans-serif !important; 
-            transition: font-size 0.2s;
             flex-shrink: 0;
             padding: 0;
-            line-height: 21px;
+            line-height: 20px;
         }
 
         #birth-form-container .cnic-box { font-size: var(--input-fs) !important; }
@@ -224,12 +211,11 @@
             background-color: #eff6ff;
         }
 
-        /* Lists and Rows */
         .form-list {
             list-style-type: decimal;
             margin: 0;
-            margin-right: 1.4rem;
-            padding: 2px 0;
+            margin-right: 1.2rem;
+            padding: 1px 0;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -237,7 +223,7 @@
         }
         .form-list > li { 
             margin-bottom: 1px;
-            line-height: 1.35;
+            line-height: 1.3;
         }
 
         .form-row {
@@ -245,20 +231,19 @@
             align-items: flex-end;
             margin-bottom: 2px;
             width: 100%;
-            line-height: 1.3;
         }
 
         .cnic-row {
             display: flex;
             align-items: center;
-            margin-bottom: 3px;
-            margin-right: 12px; 
+            margin-bottom: 2px;
+            margin-right: 10px; 
         }
 
         .oath-text {
             text-align: justify;
-            line-height: 1.42;
-            font-size: 13.5px;
+            line-height: 1.35;
+            font-size: 12.5px;
             margin: 0;
         }
 
@@ -274,16 +259,14 @@
         .footer-box {
             display: inline-block;
             border: 1.5px solid #444;
-            border-radius: 7px;
-            padding: 1px 18px;
+            border-radius: 6px;
+            padding: 1px 15px;
             font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', Arial, sans-serif;
-            font-size: 13px;
-            line-height: 1.4;
+            font-size: 12px;
             color: #111;
             background-color: #fff;
         }
 
-        /* --- Print Styles (Locked 1-Page A4 & Centered Scaling) --- */
         @media print {
             html, body { 
                 width: 210mm !important;
@@ -329,7 +312,7 @@
                 page-break-inside: avoid !important;
             }
 
-            .a4-page-wrapper {
+            .a4-sheet-center {
                 width: 210mm !important;
                 height: 297mm !important;
                 min-height: 297mm !important;
@@ -347,9 +330,9 @@
                 margin: 0 auto !important; 
                 box-shadow: none !important; 
                 width: 198mm !important; 
-                height: 285mm !important; 
-                min-height: 285mm !important;
-                max-height: 285mm !important; 
+                height: 282mm !important; 
+                min-height: 282mm !important;
+                max-height: 282mm !important; 
                 overflow: hidden !important; 
                 display: flex !important;
                 flex-direction: column !important;
@@ -361,12 +344,12 @@
             }
 
             #birth-form-container { 
-                padding: 5.5mm 9mm !important; 
+                padding: 4mm 8mm !important; 
                 border: 4px double #000 !important; 
             }
 
             #death-form-container { 
-                padding: 5mm 9mm !important; 
+                padding: 4mm 8mm !important; 
                 border: 2px solid #000 !important; 
             }
 
@@ -378,7 +361,6 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
     <div id="sidebar" class="no-print">
         <h2>رجسٹریشن فارمز</h2>
         <button class="sidebar-btn active" onclick="switchForm('birth', this)">
@@ -391,57 +373,52 @@
         </button>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content">
         
-        <!-- Controls Bar -->
         <div class="controls-bar w-full max-w-[200mm] mx-auto mt-3 flex flex-wrap justify-between items-center gap-2 no-print px-2" dir="rtl">
             <div class="flex flex-wrap items-center gap-2">
-                <button onclick="changeFontSize(1)" title="Font Size Barhayein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded shadow english-text cursor-pointer">A+</button>
-                <button onclick="changeFontSize(-1)" title="Font Size Kam Karein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded shadow english-text cursor-pointer">A-</button>
-                <button onclick="toggleBold()" title="Bold Inputs" class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded shadow english-text cursor-pointer">B</button>
+                <button onclick="changeFontSize(1)" title="Font Size Barhayein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">A+</button>
+                <button onclick="changeFontSize(-1)" title="Font Size Kam Karein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">A-</button>
+                <button onclick="toggleBold()" title="Bold Inputs" class="bg-gray-800 hover:bg-black text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">B</button>
 
-                <!-- Centered Scale & Fit on Paper Controls -->
-                <div class="flex items-center bg-white border border-gray-300 rounded shadow px-2 py-1 gap-1.5 english-text" dir="ltr">
+                <div class="flex items-center bg-white border border-gray-300 rounded shadow px-2 py-0.5 gap-1 english-text" dir="ltr">
                     <span class="text-xs font-semibold text-gray-600">Scale:</span>
-                    <button onclick="changeScale(-0.02)" title="Scale Kam Karein (Center Mein)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">-</button>
-                    <input type="number" id="scaleInput" value="100" min="70" max="105" step="1" onchange="setExactScale(this.value)" class="w-14 text-center font-bold text-sm border border-gray-300 rounded py-0.5 outline-none" title="Print Scale %">
+                    <button onclick="changeScale(-0.02)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">-</button>
+                    <input type="number" id="scaleInput" value="100" min="70" max="105" step="1" onchange="setExactScale(this.value)" class="w-12 text-center font-bold text-sm border border-gray-300 rounded py-0.5 outline-none">
                     <span class="text-xs font-bold text-gray-600">%</span>
-                    <button onclick="changeScale(0.02)" title="Scale Barhayein (Center Mein)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">+</button>
-                    <button onclick="resetScale()" class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-bold px-2 py-1 rounded cursor-pointer" title="Fit 100% on A4 Paper">Fit on Paper</button>
+                    <button onclick="changeScale(0.02)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">+</button>
+                    <button onclick="resetScale()" class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-bold px-2 py-1 rounded cursor-pointer">Fit</button>
                 </div>
             </div>
 
             <div class="flex flex-wrap gap-2" dir="ltr">
-                <button onclick="handlePrint()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
                     Print Form
                 </button>
-                <button onclick="backupData()" id="backupBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                <button onclick="backupData()" id="backupBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
                     Backup
                 </button>
                 <input type="file" id="restoreFile" accept=".json" class="hidden" onchange="restoreData(event)">
-                <button onclick="document.getElementById('restoreFile').click()" id="restoreBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                <button onclick="document.getElementById('restoreFile').click()" id="restoreBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
                     Restore
                 </button>
             </div>
         </div>
 
-        <!-- ============================================== -->
-        <!-- ============ BIRTH FORM (FORM A) ============= -->
-        <!-- ============================================== -->
+        <!-- ================= BIRTH FORM ================= -->
         <div id="birth-section" class="form-section active">
-            <div class="a4-page-wrapper">
+            <div class="a4-sheet-center">
                 <div class="form-container" id="birth-form-container">
                     
                     <div class="text-center">
-                        <h1 class="text-xl font-bold mb-0.5 tracking-widest">فارم "A"</h1>
+                        <h1 class="text-lg font-bold mb-0.5 tracking-widest">فارم "A"</h1>
                         <div class="flex flex-row items-baseline justify-between w-full">
-                            <span class="whitespace-nowrap shrink-0">درخواست فارم برائے پیدائش / کمپیوٹرائزڈ پیدائش سرٹیفکیٹ یونین کونسل</span>
-                            <input type="text" id="b_uc" class="line-input flex-grow mx-1 min-w-[60px]" dir="auto">
-                            <span class="whitespace-nowrap shrink-0">تحصیل</span>
-                            <input type="text" id="b_tehsil" class="line-input w-20 mx-1" dir="auto">
-                            <span class="whitespace-nowrap shrink-0">ضلع</span>
-                            <input type="text" id="b_district" class="line-input w-20 mx-1" dir="auto">
+                            <span class="whitespace-nowrap shrink-0 text-xs">درخواست فارم برائے پیدائش / کمپیوٹرائزڈ پیدائش سرٹیفکیٹ یونین کونسل</span>
+                            <input type="text" id="b_uc" class="line-input flex-grow mx-1 min-w-[50px]" dir="auto">
+                            <span class="whitespace-nowrap shrink-0 text-xs">تحصیل</span>
+                            <input type="text" id="b_tehsil" class="line-input w-16 mx-1" dir="auto">
+                            <span class="whitespace-nowrap shrink-0 text-xs">ضلع</span>
+                            <input type="text" id="b_district" class="line-input w-16 mx-1" dir="auto">
                         </div>
                     </div>
 
@@ -449,11 +426,11 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">بچے کا نام (اردو)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کا نام (اردو)</span>
                                     <input type="text" id="b_child_name_ur" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">بچے کا نام (انگریزی لازمی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کا نام (انگریزی لازمی)</span>
                                     <input type="text" id="b_child_name_en" class="line-input flex-grow english-text" dir="auto">
                                 </div>
                             </div>
@@ -461,16 +438,16 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full mb-0.5">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">والد کا نام (اردو)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا نام (اردو)</span>
                                     <input type="text" id="b_father_name_ur" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">والد کا نام (انگریزی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا نام (انگریزی)</span>
                                     <input type="text" id="b_father_name_en" class="line-input flex-grow english-text" dir="auto">
                                 </div>
                             </div>
                             <div class="flex justify-end items-center gap-3 pr-8">
-                                <span class="text-sm">والد کا شناختی کارڈ نمبر</span>
+                                <span class="text-xs">والد کا شناختی کارڈ نمبر</span>
                                 <div class="flex items-center" dir="ltr" id="b-father-cnic-wrap">
                                     <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                     <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
@@ -481,11 +458,11 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">دادا کا نام (اردو)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">دادا کا نام (اردو)</span>
                                     <input type="text" id="b_gf_name_ur" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">دادا کا نام (انگریزی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">دادا کا نام (انگریزی)</span>
                                     <input type="text" id="b_gf_name_en" class="line-input flex-grow english-text" dir="auto">
                                 </div>
                             </div>
@@ -493,16 +470,16 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full mb-0.5">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">والدہ کا نام (اردو)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والدہ کا نام (اردو)</span>
                                     <input type="text" id="b_mother_name_ur" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">والدہ کا نام (انگریزی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والدہ کا نام (انگریزی)</span>
                                     <input type="text" id="b_mother_name_en" class="line-input flex-grow english-text" dir="auto">
                                 </div>
                             </div>
                             <div class="flex justify-end items-center gap-3 pr-8">
-                                <span class="text-sm">والدہ کا شناختی کارڈ نمبر</span>
+                                <span class="text-xs">والدہ کا شناختی کارڈ نمبر</span>
                                 <div class="flex items-center" dir="ltr" id="b-mother-cnic-wrap">
                                     <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                     <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
@@ -513,11 +490,11 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">بچے کی تاریخ پیدائش</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کی تاریخ پیدائش</span>
                                     <input type="text" id="b_dob" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">جائے پیدائش</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">جائے پیدائش</span>
                                     <input type="text" id="b_birth_place" class="line-input flex-grow" dir="auto">
                                 </div>
                             </div>
@@ -525,11 +502,11 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end w-1/3">
-                                    <span class="whitespace-nowrap ml-2">جنس</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">جنس</span>
                                     <input type="text" id="b_gender" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-2/3">
-                                    <span class="whitespace-nowrap ml-2">والد کا پیشہ، مذہب، قوم (لازمی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا پیشہ، مذہب، قوم (لازمی)</span>
                                     <input type="text" id="b_father_details" class="line-input flex-grow" dir="auto">
                                 </div>
                             </div>
@@ -537,23 +514,23 @@
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end flex-grow">
-                                    <span class="whitespace-nowrap ml-2">والد، والدہ کا پتہ</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">والد، والدہ کا پتہ</span>
                                     <input type="text" id="b_parents_address" class="line-input w-full" dir="auto">
                                 </div>
                                 <div class="flex items-end shrink-0">
-                                    <span class="whitespace-nowrap ml-2 shrink-0">بچوں کی تعداد</span>
-                                    <input type="text" id="b_children_count" class="line-input w-16" dir="auto">
+                                    <span class="whitespace-nowrap ml-2 shrink-0 text-xs">بچوں کی تعداد</span>
+                                    <input type="text" id="b_children_count" class="line-input w-14" dir="auto">
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="flex flex-row gap-4 w-full">
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">دائی کا نام</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">دائی کا نام</span>
                                     <input type="text" id="b_midwife_ur" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2">دائی نام (انگریزی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">دائی نام (انگریزی)</span>
                                     <input type="text" id="b_midwife_en" class="line-input flex-grow english-text" dir="auto">
                                 </div>
                             </div>
@@ -561,15 +538,15 @@
                         <li>
                             <div class="flex flex-row gap-2 w-full">
                                 <div class="flex items-end w-[30%]">
-                                    <span class="whitespace-nowrap ml-2">درخواست دہندہ کا نام</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا نام</span>
                                     <input type="text" id="b_app_name" class="line-input w-full" dir="auto">
                                 </div>
                                 <div class="flex items-end w-[30%]">
-                                    <span class="whitespace-nowrap ml-2">ولدیت</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">ولدیت</span>
                                     <input type="text" id="b_app_father" class="line-input w-full" dir="auto">
                                 </div>
                                 <div class="flex items-end w-[40%]">
-                                    <span class="whitespace-nowrap ml-2">موبائل نمبر (لازمی)</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">موبایل نمبر (لازمی)</span>
                                     <input type="text" id="b_app_mobile" class="line-input w-full english-text" dir="auto">
                                 </div>
                             </div>
@@ -577,11 +554,11 @@
                         <li>
                             <div class="flex flex-col gap-0.5 w-full">
                                 <div class="flex items-end">
-                                    <span class="whitespace-nowrap ml-2">درخواست دہندہ کا پتہ</span>
+                                    <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا پتہ</span>
                                     <input type="text" id="b_app_address" class="line-input flex-grow" dir="auto">
                                 </div>
                                 <div class="flex justify-start items-center gap-3 pr-8 mt-0.5">
-                                    <span class="text-sm">درخواست دہندہ کا شناختی کارڈ نمبر</span>
+                                    <span class="text-xs">درخواست دہندہ کا شناختی کارڈ نمبر</span>
                                     <div class="flex items-center" dir="ltr" id="b-applicant-cnic-wrap">
                                         <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                         <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
@@ -592,39 +569,39 @@
                         </li>
                         <li>
                             <div class="flex items-end w-2/3">
-                                <span class="whitespace-nowrap ml-2">درخواست دہندہ کا بچے سے رشتہ</span>
+                                <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا بچے سے رشتہ</span>
                                 <input type="text" id="b_app_relation" class="line-input flex-grow" dir="auto">
                             </div>
                         </li>
                         <li>
-                            <div class="flex flex-row items-center gap-8">
+                            <div class="flex flex-row items-center gap-6 text-xs">
                                 <span class="whitespace-nowrap font-bold">قسم اندراج</span>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>نارمل</span></label>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری اول)</span></label>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری دوئم)</span></label>
+                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>نارمل</span></label>
+                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری اندراج (اول)</span></label>
+                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری اندراج (دوئم)</span></label>
                             </div>
                         </li>
                     </ol>
 
-                    <div class="space-y-1">
+                    <div class="space-y-0.5">
                         <div>
-                            <p class="oath-text">میں حلفیہ بیان کرتا/کرتی ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-28 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="mt-0.5 flex justify-end">
-                                <div class="flex items-end w-64"><span class="whitespace-nowrap ml-2 shrink-0 text-sm">دستخط/نشان انگوٹھا</span><input type="text" class="line-input w-full" dir="auto"></div>
+                            <p class="oath-text">میں حلفیہ بیان کرتا/کرتی ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-24 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                            <div class="flex justify-end">
+                                <div class="flex items-end w-56"><span class="whitespace-nowrap ml-2 shrink-0 text-xs">دستخط/نشان انگوٹھا</span><input type="text" class="line-input w-full" dir="auto"></div>
                             </div>
                         </div>
                         <hr class="border-t border-gray-400 border-dashed my-0.5">
                         <div>
-                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-28 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="mt-0.5 flex justify-end">
-                                <div class="flex items-end w-[380px]"><span class="whitespace-nowrap ml-2 shrink-0 text-sm">تصدیق نمبر دار / گزٹیڈ آفیسر کا نام و مہر و دستخط</span><input type="text" class="line-input w-full" dir="auto"></div>
+                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-24 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                            <div class="flex justify-end">
+                                <div class="flex items-end w-72"><span class="whitespace-nowrap ml-2 shrink-0 text-xs">تصدیق نمبر دار / گزٹیڈ آفیسر کا نام و مہر و دستخط</span><input type="text" class="line-input w-full" dir="auto"></div>
                             </div>
                         </div>
-                        <div class="pt-0.5">
-                            <h2 class="text-base font-bold text-center mb-0.5 tracking-widest">برائے دفتری استعمال</h2>
+                        <div>
+                            <h2 class="text-sm font-bold text-center tracking-widest">برائے دفتری استعمال</h2>
                             <div class="flex flex-row gap-6 w-full justify-between px-2">
-                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-sm">رجسٹر درج سیریل نمبر</span><input type="text" id="b_office_serial" class="line-input flex-grow" dir="auto"></div>
-                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-sm">تاریخ اندراج</span><input type="text" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
+                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-xs">رجسٹر درج سیریل نمبر</span><input type="text" id="b_office_serial" class="line-input flex-grow" dir="auto"></div>
+                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-xs">تاریخ اندراج</span><input type="text" id="b_office_date" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
                             </div>
                         </div>
                     </div>
@@ -634,28 +611,26 @@
             </div>
         </div>
 
-        <!-- ============================================== -->
-        <!-- ============ DEATH FORM (FORM B) ============= -->
-        <!-- ============================================== -->
+        <!-- ================= DEATH FORM ================= -->
         <div id="death-section" class="form-section">
-            <div class="a4-page-wrapper">
+            <div class="a4-sheet-center">
                 <div class="form-container" id="death-form-container">
                     <div>
                         <div class="text-center font-bold text-xs english-text uppercase mb-0.5 border-b border-black pb-0.5 tracking-wider">
                             THE PUNJAB GAZETE ( EXTRAODINARY ) MAY 14, 2025
                         </div>
-                        <h1 class="text-lg font-bold text-center mb-0.5">فارم "B"</h1>
+                        <h1 class="text-base font-bold text-center mb-0.5">فارم "B"</h1>
                         <div class="flex w-full items-baseline justify-center mb-1">
-                            <span class="whitespace-nowrap shrink-0 font-bold">درخواست فارم برائے اموات / کمپیوٹرائزڈ اموات سرٹیفکیٹ مقامی حکومت</span>
+                            <span class="whitespace-nowrap shrink-0 font-bold text-xs">درخواست فارم برائے اموات / کمپیوٹرائزڈ اموات سرٹیفکیٹ مقامی حکومت</span>
                             <div class="flex-grow mx-2 min-w-0"><input type="text" id="d_uc_name" class="line-input" dir="auto"></div>
                         </div>
                     </div>
 
                     <div class="flex-grow flex flex-col justify-between">
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">1- متوفی / متوفیہ کا نام (اردو)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">1- متوفی / متوفیہ کا نام (اردو)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">نام (انگریزی)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">نام (انگریزی)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_name_en" class="line-input english-text" dir="auto"></div>
                         </div>
                         <div class="cnic-row" dir="ltr" id="d-dec-cnic-wrap">
@@ -664,9 +639,9 @@
                             <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">3- والد کا نام (اردو)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">3- والد کا نام (اردو)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_father_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">والد کا نام (انگریزی)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">والد کا نام (انگریزی)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_father_name_en" class="line-input english-text" dir="auto"></div>
                         </div>
                         <div class="cnic-row" dir="ltr" id="d-father-cnic-wrap">
@@ -675,9 +650,9 @@
                             <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">5- والدہ کا نام (اردو)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">5- والدہ کا نام (اردو)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">والدہ کا نام (انگریزی)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">والدہ کا نام (انگریزی)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_en" class="line-input english-text" dir="auto"></div>
                         </div>
                         <div class="flex justify-between items-center w-full pl-2">
@@ -686,16 +661,16 @@
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
                             </div>
-                            <span class="whitespace-nowrap text-sm">والدہ کا شناختی کارڈ نمبر</span>
+                            <span class="whitespace-nowrap text-xs">والدہ کا شناختی کارڈ نمبر</span>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">ازدواجی حیثیت</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">ازدواجی حیثیت</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_marital" class="line-input" dir="auto"></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">6. شوہر کا نام (اردو)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">6. شوہر کا نام (اردو)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">شوہر کا نام (انگریزی)</span>
+                            <span class="whitespace-nowrap shrink-0 text-xs">شوہر کا نام (انگریزی)</span>
                             <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_en" class="line-input english-text" dir="auto"></div>
                         </div>
                         <div class="flex justify-between items-center w-full pl-2">
@@ -704,40 +679,40 @@
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
                             </div>
-                            <span class="whitespace-nowrap text-sm">شوہر کا شناختی کارڈ نمبر</span>
-                        </div>
-                        <div class="form-row gap-4">
-                            <div class="flex items-end flex-[0.7] min-w-0"><span class="whitespace-nowrap shrink-0">8- جنس</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">9- قوم مذہب پیشہ</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">تاریخ پیدائش</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-4">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">10- تاریخ وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">11- تاریخ تدفین</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-4">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">12- جائے وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">13- قبرستان کا نام</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-4">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">14- وجہ وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">15- مدت علالت</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                            <span class="whitespace-nowrap text-xs">شوہر کا شناختی کارڈ نمبر</span>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">15.A- بصورت علاج نام ہسپتال / نام ڈاکٹر و پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                            <div class="flex items-end flex-[0.7] min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">8- جنس</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_gender" class="line-input" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">9- قوم مذہب پیشہ</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_profession" class="line-input" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">تاریخ پیدائش</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_dob" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">15.B- نماز جنازہ پڑھانے والے کا نام و پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">10- تاریخ وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_dod" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">11- تاریخ تدفین</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_burial_date" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">16- متوفی کا پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">12- جائے وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_death_place" class="line-input" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">13- قبرستان کا نام</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_graveyard" class="line-input" dir="auto"></div></div>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">17- درخواست دہندہ کا نام و ولدیت</span>
-                            <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">14- وجہ وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_death_cause" class="line-input" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">15- مدت علالت</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_illness_duration" class="line-input" dir="auto"></div></div>
+                        </div>
+                        <div class="form-row gap-2">
+                            <span class="whitespace-nowrap shrink-0 text-xs">15.A- بصورت علاج نام ہسپتال / نام ڈاکٹر و پتہ</span>
+                            <div class="flex-grow min-w-0"><input type="text" id="d_hospital" class="line-input" dir="auto"></div>
+                        </div>
+                        <div class="form-row gap-2">
+                            <span class="whitespace-nowrap shrink-0 text-xs">15.B- نماز جنازہ پڑھانے والے کا نام و پتہ</span>
+                            <div class="flex-grow min-w-0"><input type="text" id="d_imam" class="line-input" dir="auto"></div>
+                        </div>
+                        <div class="form-row gap-2">
+                            <span class="whitespace-nowrap shrink-0 text-xs">16- متوفی کا پتہ</span>
+                            <div class="flex-grow min-w-0"><input type="text" id="d_address" class="line-input" dir="auto"></div>
+                        </div>
+                        <div class="form-row gap-2">
+                            <span class="whitespace-nowrap shrink-0 text-xs">17- درخواست دہندہ کا نام و ولدیت</span>
+                            <div class="flex-grow min-w-0"><input type="text" id="d_app_name" class="line-input" dir="auto"></div>
                         </div>
                         <div class="flex justify-between items-center w-full">
                             <div class="cnic-row mb-0" dir="ltr" id="d-app-cnic-wrap">
@@ -745,38 +720,38 @@
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
                                 <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
                             </div>
-                            <span class="whitespace-nowrap shrink-0 mr-auto">18- درخواست دہندہ کا شناختی کارڈ نمبر</span>
-                        </div>
-                        <div class="form-row gap-4">
-                            <div class="flex items-end flex-[1.5] min-w-0"><span class="whitespace-nowrap shrink-0">19- درخواست دہندہ کا متوفی سے رشتہ</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">موبائل نمبر</span><div class="flex-grow ml-2 min-w-0"><input type="text" id="d_app_mobile" class="line-input english-text" dir="auto"></div></div>
+                            <span class="whitespace-nowrap shrink-0 mr-auto text-xs">18- درخواست دہندہ کا شناختی کارڈ نمبر</span>
                         </div>
                         <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0">20- درخواست دہندہ کا پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                            <div class="flex items-end flex-[1.5] min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">19- درخواست دہندہ کا متوفی سے رشتہ</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_app_relation" class="line-input" dir="auto"></div></div>
+                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">موبائل نمبر</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_app_mobile" class="line-input english-text" dir="auto"></div></div>
                         </div>
-                        <div class="flex flex-row items-center gap-6 w-full justify-between pr-4">
+                        <div class="form-row gap-2">
+                            <span class="whitespace-nowrap shrink-0 text-xs">20- درخواست دہندہ کا پتہ</span>
+                            <div class="flex-grow min-w-0"><input type="text" id="d_app_address" class="line-input" dir="auto"></div>
+                        </div>
+                        <div class="flex flex-row items-center gap-4 w-full justify-between pr-2 text-xs">
                             <span class="whitespace-nowrap font-bold shrink-0">21- قسم اندراج</span>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>نارمل</span></label>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری اول)</span></label>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری دوئم)</span></label>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>نارمل</span></label>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (اول)</span></label>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (دوئم)</span></label>
                         </div>
-                        <div class="flex flex-row items-center gap-6 w-full justify-start pr-4">
-                            <span class="whitespace-nowrap shrink-0">22- تاخیری اندراج کی صورت میں کیا مجاز اتھارٹی سے تحریری اجازت لی گئی۔</span>
-                            <label class="flex items-center cursor-pointer gap-1 mr-4"><input type="radio" name="permission" class="w-4 h-4 accent-black"><span>ہاں</span></label>
-                            <label class="flex items-center cursor-pointer gap-1 mr-4"><input type="radio" name="permission" class="w-4 h-4 accent-black"><span>نہیں</span></label>
-                        </div>
-
-                        <div class="mt-0.5">
-                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں / کرتی ہوں کہ درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں اور یونین کونسل <input type="text" class="line-input w-28 inline-block"> کا رہائشی / سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-center mt-0.5 mb-0.5"><div class="flex items-end w-[340px]"><span class="whitespace-nowrap font-bold shrink-0 text-sm">درخواست دہندہ کا دستخط یا نشان انگوٹھا</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
-                            <p class="oath-text">میں تصدیق کرتا ہوں / کرتی ہوں کہ درخواست دہندہ کو ذاتی طور پر جانتا ہوں اور درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ درخواست گزار یونین کونسل <input type="text" class="line-input w-28 inline-block"> کا رہائشی و سکونتی ہے۔ مزید یہ کہ سائل نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-end mt-0.5 mb-0.5"><div class="flex items-end w-[390px]"><span class="whitespace-nowrap font-bold shrink-0 text-sm">تصدیق نمبردار / گزیٹڈ آفیسر کا نام و مہر و موبائل نمبر و دستخط</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
+                        <div class="flex flex-row items-center gap-4 w-full justify-start pr-2 text-xs">
+                            <span class="whitespace-nowrap shrink-0">22- تاخیری اندراج کی صورت میں کیا مجاز اتھارٹی سے تحریری اجازت لی گئی؟</span>
+                            <label class="flex items-center cursor-pointer gap-1 mr-2"><input type="radio" name="permission" class="w-3.5 h-3.5 accent-black"><span>ہاں</span></label>
+                            <label class="flex items-center cursor-pointer gap-1 mr-2"><input type="radio" name="permission" class="w-3.5 h-3.5 accent-black"><span>نہیں</span></label>
                         </div>
 
-                        <div class="flex flex-row gap-6 w-full justify-center items-end mt-0.5 font-bold text-sm">
-                            <span class="whitespace-nowrap shrink-0">رجسٹر پر درج سیریل نمبر</span><div class="w-44"><input type="text" id="d_office_serial" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">تاریخ اندراج</span><div class="w-44"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
+                        <div class="space-y-0.5">
+                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں / کرتی ہوں کہ درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں اور یونین کونسل <input type="text" class="line-input w-24 inline-block"> کا رہائشی / سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                            <div class="flex justify-center"><div class="flex items-end w-72"><span class="whitespace-nowrap font-bold shrink-0 text-xs">درخواست دہندہ کا دستخط یا نشان انگوٹھا</span><div class="flex-grow ml-1 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
+                            <p class="oath-text">میں تصدیق کرتا ہوں / کرتی ہوں کہ درخواست دہندہ کو ذاتی طور پر جانتا ہوں اور درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ درخواست گزار یونین کونسل <input type="text" class="line-input w-24 inline-block"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ سائل نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                            <div class="flex justify-end"><div class="flex items-end w-80"><span class="whitespace-nowrap font-bold shrink-0 text-xs">تصدیق نمبردار / گزیٹڈ آفیسر کا نام و مہر و موبائل نمبر و دستخط</span><div class="flex-grow ml-1 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
+                        </div>
+
+                        <div class="flex flex-row gap-4 w-full justify-center items-end font-bold text-xs">
+                            <span class="whitespace-nowrap shrink-0">رجسٹر پر درج سیریل نمبر</span><div class="w-36"><input type="text" id="d_office_serial" class="line-input" dir="auto"></div>
+                            <span class="whitespace-nowrap shrink-0">تاریخ اندراج</span><div class="w-36"><input type="text" id="d_office_date" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
                         </div>
                     </div>
 
@@ -788,20 +763,16 @@
     </div>
 
     <script>
-        // --- Warning before tab close feature ---
         let formChanged = false;
         let currentScale = 1;
         
-        function markAsChanged() {
+        function markAsChanged(e) {
+            if (e && e.target && e.target.id === 'scaleInput') return;
             formChanged = true;
         }
         
-        document.addEventListener('input', (e) => {
-            if (e.target.id !== 'scaleInput') markAsChanged();
-        });
-        document.addEventListener('change', (e) => {
-            if (e.target.id !== 'scaleInput') markAsChanged();
-        });
+        document.addEventListener('input', markAsChanged);
+        document.addEventListener('change', markAsChanged);
 
         window.addEventListener('beforeunload', function (e) {
             if (formChanged) {
@@ -813,7 +784,6 @@
 
         let activeContainer = document.getElementById('birth-form-container');
 
-        // Sidebar Switching Logic
         function switchForm(formType, btnEl) {
             document.querySelectorAll('.form-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.sidebar-btn').forEach(el => el.classList.remove('active'));
@@ -824,7 +794,6 @@
             activeContainer = document.getElementById(formType + '-form-container');
         }
 
-        // Centered Scale / Fit on Paper Controls
         function updateScaleUI() {
             document.documentElement.style.setProperty('--form-scale', currentScale);
             document.getElementById('scaleInput').value = Math.round(currentScale * 100);
@@ -848,18 +817,12 @@
             updateScaleUI();
         }
 
-        // Smart Print Handler (Ensures 100% single page fit before opening Print Dialog)
-        function handlePrint() {
-            window.print();
-        }
-
-        // Font Size Controls (Applies to active form)
         function changeFontSize(step) {
             let currentFsStr = window.getComputedStyle(activeContainer).getPropertyValue('--input-fs');
-            let currentFontSize = parseFloat(currentFsStr) || 15;
+            let currentFontSize = parseFloat(currentFsStr) || 14;
             currentFontSize += step;
             if(currentFontSize < 10) currentFontSize = 10;
-            if(currentFontSize > 22) currentFontSize = 22;
+            if(currentFontSize > 20) currentFontSize = 20;
             activeContainer.style.setProperty('--input-fs', currentFontSize + 'px');
         }
 
@@ -915,19 +878,16 @@
                 });
             };
 
-            // Setup CNICs for Birth Form
             setupCNICInputs('b-father-cnic-wrap');
             setupCNICInputs('b-mother-cnic-wrap');
             setupCNICInputs('b-applicant-cnic-wrap');
             
-            // Setup CNICs for Death Form
             setupCNICInputs('d-dec-cnic-wrap');
             setupCNICInputs('d-father-cnic-wrap');
             setupCNICInputs('d-mother-cnic-wrap');
             setupCNICInputs('d-husband-cnic-wrap');
             setupCNICInputs('d-app-cnic-wrap');
 
-            // Apply Auto-slash Date Formatting
             document.querySelectorAll('.date-format').forEach(inputEl => {
                 inputEl.addEventListener('input', function (e) {
                     let val = e.target.value.replace(/\D/g, ''); 
@@ -939,7 +899,6 @@
                 });
             });
 
-            // Spell Check Setup
             document.querySelectorAll('input[type="text"]').forEach(input => {
                 if (input.classList.contains('cnic-box') || 
                     input.classList.contains('date-format') || 
@@ -958,7 +917,6 @@
             });
         });
 
-        // Backup only the ACTIVE form's data
         async function backupData() {
             const formData = {};
             const inputs = activeContainer.querySelectorAll('input');
@@ -1020,14 +978,13 @@
             const originalText = btnElement.innerHTML;
             const originalBg = btnElement.className;
             btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> ${text}`;
-            btnElement.className = "bg-teal-600 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 transition cursor-pointer";
+            btnElement.className = "bg-teal-600 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 transition cursor-pointer";
             setTimeout(() => {
                 btnElement.innerHTML = originalText;
                 btnElement.className = originalBg;
             }, 2500);
         }
 
-        // Restore to the ACTIVE form
         function restoreData(event) {
             const file = event.target.files[0];
             if (!file) return;
