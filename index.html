@@ -1,61 +1,676 @@
 <!DOCTYPE html>
-<html lang="ur" dir="ltr">
+<html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Forms</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style id="utilities-local">
+/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-blue-600: oklch(54.6% 0.245 262.881);
+    --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-purple-600: oklch(55.8% 0.288 302.321);
+    --color-purple-700: oklch(49.6% 0.265 301.924);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --font-weight-bold: 700;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --leading-snug: 1.375;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .mx-1 {
+    margin-inline: calc(var(--spacing) * 1);
+  }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .my-1 {
+    margin-block: calc(var(--spacing) * 1);
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mr-auto {
+    margin-right: auto;
+  }
+  .mb-0 {
+    margin-bottom: calc(var(--spacing) * 0);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
+  }
+  .flex {
+    display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .w-1\/3 {
+    width: calc(1/3 * 100%);
+  }
+  .w-2\/3 {
+    width: calc(2/3 * 100%);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-\[30\%\] {
+    width: 30%;
+  }
+  .w-\[40\%\] {
+    width: 40%;
+  }
+  .w-\[350px\] {
+    width: 350px;
+  }
+  .w-\[400px\] {
+    width: 400px;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-\[210mm\] {
+    max-width: 210mm;
+  }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .min-w-\[60px\] {
+    min-width: 60px;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-\[0\.7\] {
+    flex: 0.7;
+  }
+  .flex-\[1\.5\] {
+    flex: 1.5;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .space-y-1 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
+  }
+  .border-black {
+    border-color: var(--color-black);
+  }
+  .border-gray-400 {
+    border-color: var(--color-gray-400);
+  }
+  .bg-blue-600 {
+    background-color: var(--color-blue-600);
+  }
+  .bg-gray-600 {
+    background-color: var(--color-gray-600);
+  }
+  .bg-gray-800 {
+    background-color: var(--color-gray-800);
+  }
+  .bg-green-600 {
+    background-color: var(--color-green-600);
+  }
+  .bg-purple-600 {
+    background-color: var(--color-purple-600);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .pr-4 {
+    padding-right: calc(var(--spacing) * 4);
+  }
+  .pr-10 {
+    padding-right: calc(var(--spacing) * 10);
+  }
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-justify {
+    text-align: justify;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-\[14px\] {
+    font-size: 14px;
+  }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
+  .text-\[16px\] {
+    font-size: 16px;
+  }
+  .leading-snug {
+    --tw-leading: var(--leading-snug);
+    line-height: var(--leading-snug);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .accent-black {
+    accent-color: var(--color-black);
+  }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .hover\:bg-black {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-black);
+      }
+    }
+  }
+  .hover\:bg-blue-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-blue-700);
+      }
+    }
+  }
+  .hover\:bg-gray-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
+    }
+  }
+  .hover\:bg-green-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-green-700);
+      }
+    }
+  }
+  .hover\:bg-purple-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-purple-700);
+      }
+    }
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
+
+</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        @font-face {
-            font-family: 'Jameel Noori Nastaleeq';
-            src: local('Jameel Noori Nastaleeq'),
-                 local('Jameel Noori Nastaleeq Regular'),
-                 local('JameelNooriNastaleeq'),
-                 url('https://cdn.jsdelivr.net/gh/uppal/urdu-fonts@master/JameelNooriNastaleeq.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @page {
-            size: A4 portrait;
-            margin: 0mm;
-        }
-
-        :root {
-            --form-scale: 1;
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-        }
-
         body {
             font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', Arial, sans-serif;
             background-color: #e5e7eb;
             color: #000;
-            line-height: 1.3; 
-            font-size: 13px; 
+            line-height: 1.5; 
+            font-size: 15px; 
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: row-reverse;
+            display: flex; /* Sidebar layout */
             height: 100vh;
             overflow: hidden;
         }
 
         .english-text {
-            font-family: Arial, sans-serif !important;
-            font-size: 12px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
         }
 
+        /* --- Sidebar Styles --- */
         #sidebar {
             width: 250px;
             background-color: #1f2937;
@@ -63,10 +678,8 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             z-index: 50;
-            direction: rtl;
-            flex-shrink: 0;
         }
         
         #sidebar h2 {
@@ -103,65 +716,40 @@
             font-weight: bold;
         }
 
+        /* --- Main Content Area --- */
         #main-content {
             flex-grow: 1;
             overflow-y: auto;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
             background-color: #e5e7eb;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .form-section {
-            display: none;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
+            display: none; /* Hide all forms by default */
         }
         
         .form-section.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block; /* Show active form */
         }
 
-        .a4-sheet-center {
+        /* --- Form Container Shared Styles --- */
+        .form-container {
+            background-color: #ffffff;
             width: 210mm;
             min-height: 297mm;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px auto;
-        }
-
-        .form-container {
-            direction: rtl;
-            background-color: #ffffff;
-            width: 198mm;
-            height: 286mm;
-            min-height: 286mm;
-            max-height: 286mm;
-            margin: 0 auto;
-            padding: 3mm 7mm; 
+            margin: 1.5rem auto;
+            padding: 8mm 12mm; 
             border: 2px solid #374151;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             overflow: hidden;
-            transform: scale(var(--form-scale));
-            transform-origin: center center;
-            transition: transform 0.15s ease;
         }
 
-        #birth-form-container { 
-            --input-fs: 13px; 
-            border: 4px double #374151; 
-        }
-        #death-form-container { 
-            --input-fs: 12.5px; 
-        }
+        /* Variables for inputs to control font size individually per form */
+        #birth-form-container { --input-fs: 15px; justify-content: space-between; border: 5px double #374151; }
+        #death-form-container { --input-fs: 15px; }
 
         .bold-inputs .line-input,
         .bold-inputs .cnic-box {
@@ -172,16 +760,16 @@
             border: none;
             background: transparent;
             outline: none;
-            padding: 0 2px;
+            padding: 0 4px;
             font-family: inherit;
             color: inherit;
             text-align: center; 
+            transition: font-size 0.2s;
             min-width: 0; 
             width: 100%;
-            height: 19px;
-            line-height: 17px;
         }
 
+        /* Specific border styles for inputs based on form type */
         #birth-form-container .line-input { border-bottom: 1px dashed #000; font-size: var(--input-fs) !important; }
         #death-form-container .line-input { border-bottom: 1px solid #000; font-size: var(--input-fs) !important; }
         
@@ -191,16 +779,15 @@
         }
 
         .cnic-box {
-            width: 19px;
-            height: 20px;
+            width: 22px;
+            height: 26px;
             border: 1px solid #000;
             text-align: center;
             outline: none;
             margin: 0 1px;
-            font-family: Arial, sans-serif !important; 
+            font-family: Arial, sans-serif; 
+            transition: font-size 0.2s;
             flex-shrink: 0;
-            padding: 0;
-            line-height: 18px;
         }
 
         #birth-form-container .cnic-box { font-size: var(--input-fs) !important; }
@@ -211,564 +798,489 @@
             background-color: #eff6ff;
         }
 
+        /* Lists and Rows */
         .form-list {
             list-style-type: decimal;
-            margin: 0;
-            margin-right: 1.1rem;
-            padding: 0;
+            margin-right: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
-        .form-list > li { 
-            margin: 0;
-            padding: 0.5px 0;
-            line-height: 1.2;
-        }
+        .form-list > li { margin-bottom: 0.2rem; }
 
         .form-row {
             display: flex;
             align-items: flex-end;
-            margin-bottom: 1px;
+            margin-bottom: 6px;
             width: 100%;
         }
 
         .cnic-row {
             display: flex;
             align-items: center;
-            margin-bottom: 1px;
-            margin-right: 10px; 
+            margin-bottom: 8px;
+            margin-right: 15px; 
         }
 
-        .oath-text {
-            text-align: justify;
-            line-height: 1.25;
-            font-size: 11px;
-            margin: 0;
-        }
+        .print-footer { display: none; }
 
-        .print-footer {
-            display: block;
-            text-align: center;
-            width: 100%;
-            margin-top: 1px;
-            padding-top: 1px;
-            flex-shrink: 0;
-        }
+/* A4 safe print layout - print only; keep original screen layout */
+@page { size: A4 portrait; margin: 5mm; }
+@media print {
+  html,body { width:auto!important; min-height:0!important; height:auto!important; overflow:visible!important; margin:0!important; padding:0!important; display:block!important; background:#fff!important; -webkit-print-color-adjust:exact;print-color-adjust:exact; }
+  #sidebar,.controls-bar,.no-print {display:none!important}
+  #main-content {width:200mm!important; padding:0!important; margin:0!important; overflow:visible!important; display:block!important}
+  .form-section{display:none!important; margin:0!important; padding:0!important}
+  .form-section.active{display:block!important}
+  .form-container,#birth-form-container,#death-form-container {
+    box-sizing:border-box!important; width:200mm!important; min-height:287mm!important;
+    height:287mm!important; max-height:287mm!important; margin:0!important;
+    padding:4mm 6mm!important; box-shadow:none!important; overflow:visible!important;
+    break-inside:avoid!important; display:flex!important; flex-direction:column!important;
+    font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif!important;
+    font-size:14px!important; line-height:1.72!important;
+  }
+  #birth-form-container{border:3px double #000!important;justify-content:flex-start!important}
+  #death-form-container{border:2px solid #000!important;justify-content:flex-start!important}
+  .form-container > * {flex-shrink:0!important}
+  .form-container .form-list {display:flex!important;flex-direction:column!important;justify-content:space-between!important;flex:1 0 auto!important;margin:0 1.2rem 0 0!important;padding:0!important;list-style-type:decimal!important}
+  .form-container .form-list>li {display:list-item!important;min-height:0!important;margin:0 0 2px!important;break-inside:avoid!important;line-height:1.65!important}
+  .form-container .form-list>li>div:first-child {min-height:36px}
+  .form-container .form-list>li>div:not(:first-child){min-height:24px}
+  .form-container .line-input {min-height:0!important;height:25px!important;padding:0 2px!important; font-size:var(--input-fs)!important;line-height:1.5!important}
+  .form-container .cnic-box {width:20px!important;height:23px!important;padding:0!important;font-size:14px!important}
+  .form-container .form-row,.form-container .cnic-row {margin-bottom:1px!important;min-height:0!important;line-height:1.75!important}
+  .form-container p{line-height:1.96!important;font-size:13.25px!important;margin:0!important;}
+  .form-container .mt-4{margin-top:4px!important}
+  .form-container .mt-2{margin-top:3px!important}
+  .form-container .mb-4{margin-bottom:5px!important}
+  .form-container .mb-2{margin-bottom:3px!important}
+  .form-container .mt-1{margin-top:2px!important}
+  .form-container .mb-1{margin-bottom:2px!important}
+  .form-container .space-y-1>:not([hidden])~:not([hidden]){margin-top:3px!important}
+  .form-container .print-footer{width:100%!important;text-align:center!important;display:block!important;flex-shrink:0!important;margin-top:auto!important;padding:4px 0 0!important;line-height:1.5!important}
+  .form-container .footer-box{padding:1px 10px!important;font-size:12px!important}
+  #birth-form-container>.text-center:first-child{min-height:73px!important;flex-shrink:0!important}
+  #birth-form-container>.text-center:first-child h1{margin-bottom:4px!important;line-height:1.8!important;font-size:17px!important}
+  #birth-form-container>div.mt-2 {flex:0 0 auto!important;margin-top:6px!important}
+  #death-form-container > div:first-child{min-height:103px!important;flex-shrink:0!important}
+  #death-form-container > div:first-child h1{line-height:1.8!important;margin:2px 0 7px!important;font-size:17px!important}
+  #death-form-container>.flex-grow {flex:0 0 auto!important; min-height:0!important;justify-content:flex-start!important;}
+  #death-form-container {padding:3.5mm 6mm!important;}
+  #death-form-container p{font-size:12.75px!important;line-height:1.95!important;}
+  #death-form-container .text-\[14px\]{font-size:13.25px!important}
+  #death-form-container .text-lg{font-size:15px!important}
+  .form-container .leading-snug{line-height:1.85!important}
+}
 
-        .footer-box {
-            display: inline-block;
-            border: 1.5px solid #444;
-            border-radius: 5px;
-            padding: 1px 15px;
-            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', Arial, sans-serif;
-            font-size: 11px;
-            color: #111;
-            background-color: #fff;
-        }
-
-        @media print {
-            html, body { 
-                width: 210mm !important;
-                height: 297mm !important;
-                max-height: 297mm !important;
-                background-color: #ffffff !important; 
-                margin: 0 auto !important; 
-                padding: 0 !important; 
-                overflow: hidden !important;
-                display: block !important;
-                direction: ltr !important;
-            }
-            
-            #sidebar, .controls-bar, .no-print { 
-                display: none !important;
-            }
-            
-            #main-content {
-                width: 210mm !important;
-                height: 297mm !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow: hidden !important;
-                background-color: #ffffff !important;
-                display: block !important;
-            }
-
-            .form-section {
-                display: none !important;
-            }
-
-            .form-section.active {
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-                width: 210mm !important;
-                height: 297mm !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow: hidden !important;
-                page-break-after: avoid !important;
-                page-break-before: avoid !important;
-                page-break-inside: avoid !important;
-            }
-
-            .a4-sheet-center {
-                width: 210mm !important;
-                height: 297mm !important;
-                min-height: 297mm !important;
-                max-height: 297mm !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-                overflow: hidden !important;
-            }
-
-            .form-container { 
-                direction: rtl !important;
-                margin: 0 auto !important; 
-                box-shadow: none !important; 
-                width: 198mm !important; 
-                height: 286mm !important; 
-                min-height: 286mm !important;
-                max-height: 286mm !important; 
-                overflow: hidden !important; 
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                transform: scale(var(--form-scale)) !important;
-                transform-origin: center center !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
-
-            #birth-form-container { 
-                padding: 3mm 7mm !important; 
-                border: 4px double #000 !important; 
-            }
-
-            #death-form-container { 
-                padding: 3mm 7mm !important; 
-                border: 2px solid #000 !important; 
-            }
-
-            .print-footer {
-                display: block !important;
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
 
+    <!-- Sidebar -->
     <div id="sidebar" class="no-print">
         <h2>رجسٹریشن فارمز</h2>
-        <button class="sidebar-btn active" onclick="switchForm('birth', this)">
+        <button class="sidebar-btn active" onclick="switchForm('birth')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
             فارم A (پیدائش)
         </button>
-        <button class="sidebar-btn" onclick="switchForm('death', this)">
+        <button class="sidebar-btn" onclick="switchForm('death')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             فارم B (اموات)
         </button>
     </div>
 
+    <!-- Main Content -->
     <div id="main-content">
         
-        <div class="controls-bar w-full max-w-[200mm] mx-auto mt-3 flex flex-wrap justify-between items-center gap-2 no-print px-2" dir="rtl">
-            <div class="flex flex-wrap items-center gap-2">
-                <button onclick="changeFontSize(1)" title="Font Size Barhayein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">A+</button>
-                <button onclick="changeFontSize(-1)" title="Font Size Kam Karein" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">A-</button>
-                <button onclick="toggleBold()" title="Bold Inputs" class="bg-gray-800 hover:bg-black text-white font-bold py-1.5 px-3 rounded shadow english-text cursor-pointer">B</button>
-
-                <div class="flex items-center bg-white border border-gray-300 rounded shadow px-2 py-0.5 gap-1 english-text" dir="ltr">
-                    <span class="text-xs font-semibold text-gray-600">Scale:</span>
-                    <button onclick="changeScale(-0.02)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">-</button>
-                    <input type="number" id="scaleInput" value="100" min="70" max="105" step="1" onchange="setExactScale(this.value)" class="w-12 text-center font-bold text-sm border border-gray-300 rounded py-0.5 outline-none">
-                    <span class="text-xs font-bold text-gray-600">%</span>
-                    <button onclick="changeScale(0.02)" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-2 py-0.5 rounded cursor-pointer">+</button>
-                    <button onclick="resetScale()" class="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs font-bold px-2 py-1 rounded cursor-pointer">Fit</button>
-                </div>
+        <!-- Controls Bar (Always Visible above active form) -->
+        <div class="controls-bar max-w-[210mm] mx-auto mt-4 flex flex-wrap justify-between items-center gap-3 no-print px-2">
+            <div class="flex gap-2">
+                <button onclick="changeFontSize(1)" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded shadow english-text cursor-pointer">A+</button>
+                <button onclick="changeFontSize(-1)" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded shadow english-text cursor-pointer">A-</button>
+                <button onclick="toggleBold()" class="bg-gray-800 hover:bg-black text-white font-bold py-2 px-4 rounded shadow english-text cursor-pointer">B</button>
             </div>
 
-            <div class="flex flex-wrap gap-2" dir="ltr">
-                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
-                    Print Form
-                </button>
-                <button onclick="backupData()" id="backupBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
-                    Backup
-                </button>
+            <div class="flex flex-wrap gap-2">
                 <input type="file" id="restoreFile" accept=".json" class="hidden" onchange="restoreData(event)">
-                <button onclick="document.getElementById('restoreFile').click()" id="restoreBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                <button onclick="document.getElementById('restoreFile').click()" id="restoreBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
                     Restore
                 </button>
+                <button onclick="backupData()" id="backupBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                    Backup
+                </button>
+                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 cursor-pointer">
+                    Print Form
+                </button>
             </div>
         </div>
 
-        <!-- ================= BIRTH FORM ================= -->
+        <!-- ============================================== -->
+        <!-- ============ BIRTH FORM (FORM A) ============= -->
+        <!-- ============================================== -->
         <div id="birth-section" class="form-section active">
-            <div class="a4-sheet-center">
-                <div class="form-container" id="birth-form-container">
-                    
-                    <div class="text-center">
-                        <h1 class="text-base font-bold mb-0.5 tracking-widest">فارم "A"</h1>
-                        <div class="flex flex-row items-baseline justify-between w-full">
-                            <span class="whitespace-nowrap shrink-0 text-xs">درخواست فارم برائے پیدائش / کمپیوٹرائزڈ پیدائش سرٹیفکیٹ یونین کونسل</span>
-                            <input type="text" id="b_uc" class="line-input flex-grow mx-1 min-w-[50px]" dir="auto">
-                            <span class="whitespace-nowrap shrink-0 text-xs">تحصیل</span>
-                            <input type="text" id="b_tehsil" class="line-input w-16 mx-1" dir="auto">
-                            <span class="whitespace-nowrap shrink-0 text-xs">ضلع</span>
-                            <input type="text" id="b_district" class="line-input w-16 mx-1" dir="auto">
-                        </div>
+            <div class="form-container" id="birth-form-container">
+                
+                <div class="text-center mb-1">
+                    <h1 class="text-2xl font-bold mb-1 tracking-widest">فارم "A"</h1>
+                    <div class="flex flex-row items-baseline justify-between w-full">
+                        <span class="whitespace-nowrap shrink-0">درخواست فارم برائے پیدائش / کمپیوٹرائزڈ پیدائش سرٹیفکیٹ یونین کونسل</span>
+                        <input type="text" id="b_uc" class="line-input flex-grow mx-1 min-w-[60px]" dir="auto">
+                        <span class="whitespace-nowrap shrink-0">تحصیل</span>
+                        <input type="text" id="b_tehsil" class="line-input w-20 mx-1" dir="auto">
+                        <span class="whitespace-nowrap shrink-0">ضلع</span>
+                        <input type="text" id="b_district" class="line-input w-20 mx-1" dir="auto">
                     </div>
-
-                    <ol class="form-list">
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کا نام (اردو)</span>
-                                    <input type="text" id="b_child_name_ur" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کا نام (انگریزی لازمی)</span>
-                                    <input type="text" id="b_child_name_en" class="line-input flex-grow english-text" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full mb-0.5">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا نام (اردو)</span>
-                                    <input type="text" id="b_father_name_ur" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا نام (انگریزی)</span>
-                                    <input type="text" id="b_father_name_en" class="line-input flex-grow english-text" dir="auto">
-                                </div>
-                            </div>
-                            <div class="flex justify-end items-center gap-3 pr-6">
-                                <span class="text-xs">والد کا شناختی کارڈ نمبر</span>
-                                <div class="flex items-center" dir="ltr" id="b-father-cnic-wrap">
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">دادا کا نام (اردو)</span>
-                                    <input type="text" id="b_gf_name_ur" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">دادا کا نام (انگریزی)</span>
-                                    <input type="text" id="b_gf_name_en" class="line-input flex-grow english-text" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full mb-0.5">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والدہ کا نام (اردو)</span>
-                                    <input type="text" id="b_mother_name_ur" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والدہ کا نام (انگریزی)</span>
-                                    <input type="text" id="b_mother_name_en" class="line-input flex-grow english-text" dir="auto">
-                                </div>
-                            </div>
-                            <div class="flex justify-end items-center gap-3 pr-6">
-                                <span class="text-xs">والدہ کا شناختی کارڈ نمبر</span>
-                                <div class="flex items-center" dir="ltr" id="b-mother-cnic-wrap">
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">بچے کی تاریخ پیدائش</span>
-                                    <input type="text" id="b_dob" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">جائے پیدائش</span>
-                                    <input type="text" id="b_birth_place" class="line-input flex-grow" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end w-1/3">
-                                    <span class="whitespace-nowrap ml-2 text-xs">جنس</span>
-                                    <input type="text" id="b_gender" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-2/3">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والد کا پیشہ، مذہب، قوم (لازمی)</span>
-                                    <input type="text" id="b_father_details" class="line-input flex-grow" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end flex-grow">
-                                    <span class="whitespace-nowrap ml-2 text-xs">والد، والدہ کا پتہ</span>
-                                    <input type="text" id="b_parents_address" class="line-input w-full" dir="auto">
-                                </div>
-                                <div class="flex items-end shrink-0">
-                                    <span class="whitespace-nowrap ml-2 shrink-0 text-xs">بچوں کی تعداد</span>
-                                    <input type="text" id="b_children_count" class="line-input w-14" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-4 w-full">
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">دائی کا نام</span>
-                                    <input type="text" id="b_midwife_ur" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex items-end w-1/2">
-                                    <span class="whitespace-nowrap ml-2 text-xs">دائی نام (انگریزی)</span>
-                                    <input type="text" id="b_midwife_en" class="line-input flex-grow english-text" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row gap-2 w-full">
-                                <div class="flex items-end w-[30%]">
-                                    <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا نام</span>
-                                    <input type="text" id="b_app_name" class="line-input w-full" dir="auto">
-                                </div>
-                                <div class="flex items-end w-[30%]">
-                                    <span class="whitespace-nowrap ml-2 text-xs">ولدیت</span>
-                                    <input type="text" id="b_app_father" class="line-input w-full" dir="auto">
-                                </div>
-                                <div class="flex items-end w-[40%]">
-                                    <span class="whitespace-nowrap ml-2 text-xs">موبایل نمبر (لازمی)</span>
-                                    <input type="text" id="b_app_mobile" class="line-input w-full english-text" dir="auto">
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-col gap-0.5 w-full">
-                                <div class="flex items-end">
-                                    <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا پتہ</span>
-                                    <input type="text" id="b_app_address" class="line-input flex-grow" dir="auto">
-                                </div>
-                                <div class="flex justify-start items-center gap-3 pr-6 mt-0.5">
-                                    <span class="text-xs">درخواست دہندہ کا شناختی کارڈ نمبر</span>
-                                    <div class="flex items-center" dir="ltr" id="b-applicant-cnic-wrap">
-                                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-end w-2/3">
-                                <span class="whitespace-nowrap ml-2 text-xs">درخواست دہندہ کا بچے سے رشتہ</span>
-                                <input type="text" id="b_app_relation" class="line-input flex-grow" dir="auto">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex flex-row items-center gap-6 text-xs">
-                                <span class="whitespace-nowrap font-bold">قسم اندراج</span>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>نارمل</span></label>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (اول)</span></label>
-                                <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (دوئم)</span></label>
-                            </div>
-                        </li>
-                    </ol>
-
-                    <div class="space-y-0.5">
-                        <div>
-                            <p class="oath-text">میں حلفیہ بیان کرتا/کرتی ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-24 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-end">
-                                <div class="flex items-end w-56"><span class="whitespace-nowrap ml-2 shrink-0 text-xs">دستخط/نشان انگوٹھا</span><input type="text" class="line-input w-full" dir="auto"></div>
-                            </div>
-                        </div>
-                        <hr class="border-t border-gray-400 border-dashed my-0.5">
-                        <div>
-                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-24 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-end">
-                                <div class="flex items-end w-72"><span class="whitespace-nowrap ml-2 shrink-0 text-xs">تصدیق نمبر دار / گزٹیڈ آفیسر کا نام و مہر و دستخط</span><input type="text" class="line-input w-full" dir="auto"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="text-xs font-bold text-center tracking-widest">برائے دفتری استعمال</h2>
-                            <div class="flex flex-row gap-6 w-full justify-between px-2">
-                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-xs">رجسٹر درج سیریل نمبر</span><input type="text" id="b_office_serial" class="line-input flex-grow" dir="auto"></div>
-                                <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-xs">تاریخ اندراج</span><input type="text" id="b_office_date" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="print-footer" dir="rtl"><div class="footer-box">محمد طلحہ کلول 03084502730</div></div>
                 </div>
+
+                <ol class="form-list">
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">بچے کا نام (اردو)</span>
+                                <input type="text" id="b_child_name_ur" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">بچے کا نام (انگریزی لازمی)</span>
+                                <input type="text" id="b_child_name_en" class="line-input flex-grow english-text" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full mb-1">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">والد کا نام (اردو)</span>
+                                <input type="text" id="b_father_name_ur" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">والد کا نام (انگریزی)</span>
+                                <input type="text" id="b_father_name_en" class="line-input flex-grow english-text" dir="auto">
+                            </div>
+                        </div>
+                        <div class="flex justify-end items-center gap-3 pr-10">
+                            <span class="text-sm">والد کا شناختی کارڈ نمبر</span>
+                            <div class="flex items-center" dir="ltr" id="b-father-cnic-wrap">
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">دادا کا نام (اردو)</span>
+                                <input type="text" id="b_gf_name_ur" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">دادا کا نام (انگریزی)</span>
+                                <input type="text" id="b_gf_name_en" class="line-input flex-grow english-text" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full mb-1">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">والدہ کا نام (اردو)</span>
+                                <input type="text" id="b_mother_name_ur" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">والدہ کا نام (انگریزی)</span>
+                                <input type="text" id="b_mother_name_en" class="line-input flex-grow english-text" dir="auto">
+                            </div>
+                        </div>
+                        <div class="flex justify-end items-center gap-3 pr-10">
+                            <span class="text-sm">والدہ کا شناختی کارڈ نمبر</span>
+                            <div class="flex items-center" dir="ltr" id="b-mother-cnic-wrap">
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">بچے کی تاریخ پیدائش</span>
+                                <input type="text" id="b_dob" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">جائے پیدائش</span>
+                                <input type="text" id="b_birth_place" class="line-input flex-grow" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end w-1/3">
+                                <span class="whitespace-nowrap ml-2">جنس</span>
+                                <input type="text" id="b_gender" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-2/3">
+                                <span class="whitespace-nowrap ml-2">والد کا پیشہ، مذہب، قوم (لازمی)</span>
+                                <input type="text" id="b_father_details" class="line-input flex-grow" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end flex-grow">
+                                <span class="whitespace-nowrap ml-2">والد، والدہ کا پتہ</span>
+                                <input type="text" id="b_parents_address" class="line-input w-full" dir="auto">
+                            </div>
+                            <div class="flex items-end shrink-0">
+                                <span class="whitespace-nowrap ml-2 shrink-0">بچوں کی تعداد</span>
+                                <input type="text" id="b_children_count" class="line-input w-16" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-4 w-full">
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">دائی کا نام</span>
+                                <input type="text" id="b_midwife_ur" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex items-end w-1/2">
+                                <span class="whitespace-nowrap ml-2">دائی نام (انگریزی)</span>
+                                <input type="text" id="b_midwife_en" class="line-input flex-grow english-text" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row gap-2 w-full">
+                            <div class="flex items-end w-[30%]">
+                                <span class="whitespace-nowrap ml-2">درخواست دہندہ کا نام</span>
+                                <input type="text" id="b_app_name" class="line-input w-full" dir="auto">
+                            </div>
+                            <div class="flex items-end w-[30%]">
+                                <span class="whitespace-nowrap ml-2">ولدیت</span>
+                                <input type="text" id="b_app_father" class="line-input w-full" dir="auto">
+                            </div>
+                            <div class="flex items-end w-[40%]">
+                                <span class="whitespace-nowrap ml-2">موبائل نمبر (لازمی)</span>
+                                <input type="text" id="b_app_mobile" class="line-input w-full english-text" dir="auto">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-col gap-1 w-full">
+                            <div class="flex items-end">
+                                <span class="whitespace-nowrap ml-2">درخواست دہندہ کا پتہ</span>
+                                <input type="text" id="b_app_address" class="line-input flex-grow" dir="auto">
+                            </div>
+                            <div class="flex justify-start items-center gap-3 pr-10 mt-1">
+                                <span class="text-sm">درخواست دہندہ کا شناختی کارڈ نمبر</span>
+                                <div class="flex items-center" dir="ltr" id="b-applicant-cnic-wrap">
+                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                                    <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-end w-2/3">
+                            <span class="whitespace-nowrap ml-2">درخواست دہندہ کا بچے سے رشتہ</span>
+                            <input type="text" id="b_app_relation" class="line-input flex-grow" dir="auto">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row items-center gap-8 mt-1">
+                            <span class="whitespace-nowrap font-bold">قسم اندراج</span>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>نارمل</span></label>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری اول)</span></label>
+                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="b_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری دوئم)</span></label>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="mt-2 space-y-1">
+                    <div>
+                        <p class="text-justify">میں حلفیہ بیان کرتا/کرتی ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-32 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                        <div class="mt-1 flex justify-end">
+                            <div class="flex items-end w-64"><span class="whitespace-nowrap ml-2 shrink-0">دستخط/نشان انگوٹھا</span><input type="text" class="line-input w-full" dir="auto"></div>
+                        </div>
+                    </div>
+                    <hr class="border-t border-gray-400 border-dashed my-1">
+                    <div>
+                        <p class="text-justify">میں حلفیہ بیان کرتا ہوں کہ دروبالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ اور میں یونین کونسل <input type="text" class="line-input w-32 inline-block" dir="auto"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا بچے/بچی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر نقصی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر نقصی غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                        <div class="mt-2 mb-1 flex justify-end">
+                            <div class="flex items-end w-[400px]"><span class="whitespace-nowrap ml-2 shrink-0 text-[15px]">تصدیق نمبر دار / گزٹیڈ آفیسر کا نام و مہر و دستخط</span><input type="text" class="line-input w-full" dir="auto"></div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <h2 class="text-lg font-bold text-center mb-2 tracking-widest">برائے دفتری استعمال</h2>
+                        <div class="flex flex-row gap-6 w-full justify-between px-2">
+                            <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-[16px]">رجسٹر درج سیریل نمبر</span><input type="text" id="b_office_serial" class="line-input flex-grow" dir="auto"></div>
+                            <div class="flex items-end w-1/2"><span class="whitespace-nowrap ml-2 font-bold text-[16px]">تاریخ اندراج</span><input type="text" class="line-input flex-grow date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="print-footer" dir="rtl"><div class="footer-box">محمد طلحہ کلول 03084502730</div></div>
             </div>
         </div>
 
-        <!-- ================= DEATH FORM ================= -->
+        <!-- ============================================== -->
+        <!-- ============ DEATH FORM (FORM B) ============= -->
+        <!-- ============================================== -->
         <div id="death-section" class="form-section">
-            <div class="a4-sheet-center">
-                <div class="form-container" id="death-form-container">
-                    <div>
-                        <div class="text-center font-bold text-xs english-text uppercase mb-0.5 border-b border-black pb-0.5 tracking-wider">
-                            THE PUNJAB GAZETE ( EXTRAODINARY ) MAY 14, 2025
-                        </div>
-                        <h1 class="text-base font-bold text-center mb-0.5">فارم "B"</h1>
-                        <div class="flex w-full items-baseline justify-center mb-0.5">
-                            <span class="whitespace-nowrap shrink-0 font-bold text-xs">درخواست فارم برائے اموات / کمپیوٹرائزڈ اموات سرٹیفکیٹ مقامی حکومت</span>
-                            <div class="flex-grow mx-2 min-w-0"><input type="text" id="d_uc_name" class="line-input" dir="auto"></div>
-                        </div>
+            <div class="form-container" id="death-form-container">
+                <div>
+                    <div class="text-center font-bold text-sm english-text uppercase mb-2 border-b border-black pb-1 tracking-wider">
+                        THE PUNJAB GAZETE ( EXTRAODINARY ) MAY 14, 2025
                     </div>
-
-                    <div class="flex-grow flex flex-col justify-between">
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">1- متوفی / متوفیہ کا نام (اردو)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0 text-xs">نام (انگریزی)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_name_en" class="line-input english-text" dir="auto"></div>
-                        </div>
-                        <div class="cnic-row" dir="ltr" id="d-dec-cnic-wrap">
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">3- والد کا نام (اردو)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_father_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0 text-xs">والد کا نام (انگریزی)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_father_name_en" class="line-input english-text" dir="auto"></div>
-                        </div>
-                        <div class="cnic-row" dir="ltr" id="d-father-cnic-wrap">
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">5- والدہ کا نام (اردو)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0 text-xs">والدہ کا نام (انگریزی)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_en" class="line-input english-text" dir="auto"></div>
-                        </div>
-                        <div class="flex justify-between items-center w-full pl-2">
-                            <div class="cnic-row mb-0" dir="ltr" id="d-mother-cnic-wrap">
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                            </div>
-                            <span class="whitespace-nowrap text-xs">والدہ کا شناختی کارڈ نمبر</span>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">ازدواجی حیثیت</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_marital" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">6. شوہر کا نام (اردو)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_ur" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0 text-xs">شوہر کا نام (انگریزی)</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_en" class="line-input english-text" dir="auto"></div>
-                        </div>
-                        <div class="flex justify-between items-center w-full pl-2">
-                            <div class="cnic-row mb-0" dir="ltr" id="d-husband-cnic-wrap">
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                            </div>
-                            <span class="whitespace-nowrap text-xs">شوہر کا شناختی کارڈ نمبر</span>
-                        </div>
-                        <div class="form-row gap-2">
-                            <div class="flex items-end flex-[0.7] min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">8- جنس</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_gender" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">9- قوم مذہب پیشہ</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_profession" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">تاریخ پیدائش</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_dob" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">10- تاریخ وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_dod" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">11- تاریخ تدفین</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_burial_date" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">12- جائے وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_death_place" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">13- قبرستان کا نام</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_graveyard" class="line-input" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">14- وجہ وفات</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_death_cause" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">15- مدت علالت</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_illness_duration" class="line-input" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">15.A- بصورت علاج نام ہسپتال / نام ڈاکٹر و پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_hospital" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">15.B- نماز جنازہ پڑھانے والے کا نام و پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_imam" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">16- متوفی کا پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_address" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">17- درخواست دہندہ کا نام و ولدیت</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_app_name" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="flex justify-between items-center w-full">
-                            <div class="cnic-row mb-0" dir="ltr" id="d-app-cnic-wrap">
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
-                                <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
-                            </div>
-                            <span class="whitespace-nowrap shrink-0 mr-auto text-xs">18- درخواست دہندہ کا شناختی کارڈ نمبر</span>
-                        </div>
-                        <div class="form-row gap-2">
-                            <div class="flex items-end flex-[1.5] min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">19- درخواست دہندہ کا متوفی سے رشتہ</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_app_relation" class="line-input" dir="auto"></div></div>
-                            <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0 text-xs">موبائل نمبر</span><div class="flex-grow ml-1 min-w-0"><input type="text" id="d_app_mobile" class="line-input english-text" dir="auto"></div></div>
-                        </div>
-                        <div class="form-row gap-2">
-                            <span class="whitespace-nowrap shrink-0 text-xs">20- درخواست دہندہ کا پتہ</span>
-                            <div class="flex-grow min-w-0"><input type="text" id="d_app_address" class="line-input" dir="auto"></div>
-                        </div>
-                        <div class="flex flex-row items-center gap-4 w-full justify-between pr-2 text-xs">
-                            <span class="whitespace-nowrap font-bold shrink-0">21- قسم اندراج</span>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>نارمل</span></label>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (اول)</span></label>
-                            <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-3.5 h-3.5 accent-black"><span>تاخیری (دوئم)</span></label>
-                        </div>
-                        <div class="flex flex-row items-center gap-4 w-full justify-start pr-2 text-xs">
-                            <span class="whitespace-nowrap shrink-0">22- تاخیری اندراج کی صورت میں کیا مجاز اتھارٹی سے تحریری اجازت لی گئی؟</span>
-                            <label class="flex items-center cursor-pointer gap-1 mr-2"><input type="radio" name="permission" class="w-3.5 h-3.5 accent-black"><span>ہاں</span></label>
-                            <label class="flex items-center cursor-pointer gap-1 mr-2"><input type="radio" name="permission" class="w-3.5 h-3.5 accent-black"><span>نہیں</span></label>
-                        </div>
-
-                        <div class="space-y-0.5">
-                            <p class="oath-text">میں حلفیہ بیان کرتا ہوں / کرتی ہوں کہ درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں اور یونین کونسل <input type="text" class="line-input w-24 inline-block"> کا رہائشی / سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-center"><div class="flex items-end w-72"><span class="whitespace-nowrap font-bold shrink-0 text-xs">درخواست دہندہ کا دستخط یا نشان انگوٹھا</span><div class="flex-grow ml-1 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
-                            <p class="oath-text">میں تصدیق کرتا ہوں / کرتی ہوں کہ درخواست دہندہ کو ذاتی طور پر جانتا ہوں اور درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ درخواست گزار یونین کونسل <input type="text" class="line-input w-24 inline-block"> کا رہائشی و سکونتی ہوں۔ مزید یہ کہ سائل نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
-                            <div class="flex justify-end"><div class="flex items-end w-80"><span class="whitespace-nowrap font-bold shrink-0 text-xs">تصدیق نمبردار / گزیٹڈ آفیسر کا نام و مہر و موبائل نمبر و دستخط</span><div class="flex-grow ml-1 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
-                        </div>
-
-                        <div class="flex flex-row gap-4 w-full justify-center items-end font-bold text-xs">
-                            <span class="whitespace-nowrap shrink-0">رجسٹر پر درج سیریل نمبر</span><div class="w-36"><input type="text" id="d_office_serial" class="line-input" dir="auto"></div>
-                            <span class="whitespace-nowrap shrink-0">تاریخ اندراج</span><div class="w-36"><input type="text" id="d_office_date" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
-                        </div>
+                    <h1 class="text-xl font-bold text-center mb-1">فارم "B"</h1>
+                    <div class="flex w-full items-baseline justify-center mb-4">
+                        <span class="whitespace-nowrap shrink-0 font-bold">درخواست فارم برائے اموات / کمپیوٹرائزڈ اموات سرٹیفکیٹ مقامی حکومت</span>
+                        <div class="flex-grow mx-2 min-w-0"><input type="text" id="d_uc_name" class="line-input" dir="auto"></div>
                     </div>
-
-                    <div class="print-footer" dir="rtl"><div class="footer-box">محمد طلحہ کلول 03084502730</div></div>
                 </div>
+
+                <div class="flex-grow flex flex-col justify-between">
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">1- متوفی / متوفیہ کا نام (اردو)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_name_ur" class="line-input" dir="auto"></div>
+                        <span class="whitespace-nowrap shrink-0">نام (انگریزی)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_name_en" class="line-input english-text" dir="auto"></div>
+                    </div>
+                    <div class="cnic-row" dir="ltr" id="d-dec-cnic-wrap">
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">3- والد کا نام (اردو)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_father_name_ur" class="line-input" dir="auto"></div>
+                        <span class="whitespace-nowrap shrink-0">والد کا نام (انگریزی)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_father_name_en" class="line-input english-text" dir="auto"></div>
+                    </div>
+                    <div class="cnic-row" dir="ltr" id="d-father-cnic-wrap">
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                        <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">5- والدہ کا نام (اردو)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_ur" class="line-input" dir="auto"></div>
+                        <span class="whitespace-nowrap shrink-0">والدہ کا نام (انگریزی)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_mother_name_en" class="line-input english-text" dir="auto"></div>
+                    </div>
+                    <div class="flex justify-between items-center w-full mb-1 pl-2">
+                        <div class="cnic-row mb-0" dir="ltr" id="d-mother-cnic-wrap">
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                        </div>
+                        <span class="whitespace-nowrap text-sm">والدہ کا شناختی کارڈ نمبر</span>
+                    </div>
+                    <div class="form-row gap-2 mt-1">
+                        <span class="whitespace-nowrap shrink-0">ازدواجی حیثیت</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_marital" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">6. شوہر کا نام (اردو)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_ur" class="line-input" dir="auto"></div>
+                        <span class="whitespace-nowrap shrink-0">شوہر کا نام (انگریزی)</span>
+                        <div class="flex-grow min-w-0"><input type="text" id="d_husband_name_en" class="line-input english-text" dir="auto"></div>
+                    </div>
+                    <div class="flex justify-between items-center w-full mb-1 pl-2">
+                        <div class="cnic-row mb-0" dir="ltr" id="d-husband-cnic-wrap">
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                        </div>
+                        <span class="whitespace-nowrap text-sm">شوہر کا شناختی کارڈ نمبر</span>
+                    </div>
+                    <div class="form-row gap-4">
+                        <div class="flex items-end flex-[0.7] min-w-0"><span class="whitespace-nowrap shrink-0">8- جنس</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">9- قوم مذہب پیشہ</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">تاریخ پیدائش</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
+                    </div>
+                    <div class="form-row gap-4">
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">10- تاریخ وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">11- تاریخ تدفین</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div></div>
+                    </div>
+                    <div class="form-row gap-4">
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">12- جائے وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">13- قبرستان کا نام</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                    </div>
+                    <div class="form-row gap-4">
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">14- وجہ وفات</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">15- مدت علالت</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">15.A- بصورت علاج نام ہسپتال / نام ڈاکٹر و پتہ</span>
+                        <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">15.B- نماز جنازہ پڑھانے والے کا نام و پتہ</span>
+                        <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">16- متوفی کا پتہ</span>
+                        <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="form-row gap-2 mt-2">
+                        <span class="whitespace-nowrap shrink-0">17- درخواست دہندہ کا نام و ولدیت</span>
+                        <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="flex justify-between items-center w-full mt-1">
+                        <div class="cnic-row mb-0" dir="ltr" id="d-app-cnic-wrap">
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"><input type="text" maxlength="1" class="cnic-box"></div><span class="mx-1 font-bold">-</span>
+                            <div class="flex"><input type="text" maxlength="1" class="cnic-box"></div>
+                        </div>
+                        <span class="whitespace-nowrap shrink-0 mr-auto">18- درخواست دہندہ کا شناختی کارڈ نمبر</span>
+                    </div>
+                    <div class="form-row gap-4 mt-2">
+                        <div class="flex items-end flex-[1.5] min-w-0"><span class="whitespace-nowrap shrink-0">19- درخواست دہندہ کا متوفی سے رشتہ</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div>
+                        <div class="flex items-end flex-1 min-w-0"><span class="whitespace-nowrap shrink-0">موبائل نمبر</span><div class="flex-grow ml-2 min-w-0"><input type="text" id="d_app_mobile" class="line-input english-text" dir="auto"></div></div>
+                    </div>
+                    <div class="form-row gap-2">
+                        <span class="whitespace-nowrap shrink-0">20- درخواست دہندہ کا پتہ</span>
+                        <div class="flex-grow min-w-0"><input type="text" class="line-input" dir="auto"></div>
+                    </div>
+                    <div class="flex flex-row items-center gap-6 mt-1 w-full justify-between pr-4">
+                        <span class="whitespace-nowrap font-bold shrink-0">21- قسم اندراج</span>
+                        <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>نارمل</span></label>
+                        <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری اول)</span></label>
+                        <label class="flex items-center cursor-pointer gap-1"><input type="radio" name="d_entry_type" class="w-4 h-4 accent-black"><span>تاخیری اندراج (کیٹیگری دوئم)</span></label>
+                    </div>
+                    <div class="flex flex-row items-center gap-6 mt-1 w-full justify-start pr-4">
+                        <span class="whitespace-nowrap shrink-0">22- تاخیری اندراج کی صورت میں کیا مجاز اتھارٹی سے تحریری اجازت لی گئی۔</span>
+                        <label class="flex items-center cursor-pointer gap-1 mr-4"><input type="radio" name="permission" class="w-4 h-4 accent-black"><span>ہاں</span></label>
+                        <label class="flex items-center cursor-pointer gap-1 mr-4"><input type="radio" name="permission" class="w-4 h-4 accent-black"><span>نہیں</span></label>
+                    </div>
+
+                    <div class="mt-2 text-[14px]">
+                        <p class="text-justify leading-snug">میں حلفیہ بیان کرتا ہوں / کرتی ہوں کہ درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں اور یونین کونسل <input type="text" class="line-input w-32 inline-block"> کا رہائشی / سکونتی ہوں۔ مزید یہ کہ میں نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ لہذا اس کا اندراج کر دیا جائے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                        <div class="flex justify-center mt-4 mb-2"><div class="flex items-end w-[350px]"><span class="whitespace-nowrap font-bold shrink-0">درخواست دہندہ کا دستخط یا نشان انگوٹھا</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
+                        <p class="text-justify leading-snug">میں تصدیق کرتا ہوں / کرتی ہوں کہ درخواست دہندہ کو ذاتی طور پر جانتا ہوں اور درج بالا تمام کوائف میرے علم و یقین کے مطابق درست ہیں۔ درخواست گزار یونین کونسل <input type="text" class="line-input w-32 inline-block"> کا رہائشی و سکونتی ہے۔ مزید یہ کہ سائل نے مذکورہ بالا متوفی کا نام پاکستان میں اس کے علاوہ کسی دوسری جگہ پر درج نہ کروایا ہے۔ اس ضمن میں کوئی بھی امر مخفی یا جھوٹ نہ ہے۔ گر کوئی امر مخفی / غلط جھوٹ ثابت ہوا تو محکمہ میرے خلاف کاروائی کا حق رکھتا ہے۔</p>
+                        <div class="flex justify-end mt-4 mb-2"><div class="flex items-end w-[400px]"><span class="whitespace-nowrap font-bold shrink-0">تصدیق نمبردار / گزیٹڈ آفیسر کا نام و مہر و موبائل نمبر و دستخط</span><div class="flex-grow ml-2 min-w-0"><input type="text" class="line-input" dir="auto"></div></div></div>
+                    </div>
+
+                    <div class="flex flex-row gap-6 w-full justify-center items-end mt-4 font-bold text-lg">
+                        <span class="whitespace-nowrap shrink-0">رجسٹر پر درج سیریل نمبر</span><div class="w-48"><input type="text" id="d_office_serial" class="line-input" dir="auto"></div>
+                        <span class="whitespace-nowrap shrink-0">تاریخ اندراج</span><div class="w-48"><input type="text" class="line-input date-format english-text" placeholder="DD / MM / YYYY" dir="auto"></div>
+                    </div>
+                </div>
+
+                <div class="print-footer" dir="rtl"><div class="footer-box">محمد طلحہ کلول 03084502730</div></div>
             </div>
         </div>
 
     </div>
 
     <script>
+        // --- Warning before tab close feature ---
         let formChanged = false;
-        let currentScale = 1;
         
-        function markAsChanged(e) {
-            if (e && e.target && e.target.id === 'scaleInput') return;
+        // Track changes on any input field (typing or selecting)
+        function markAsChanged() {
             formChanged = true;
         }
         
@@ -777,53 +1289,34 @@
 
         window.addEventListener('beforeunload', function (e) {
             if (formChanged) {
+                // Cancel the event
                 e.preventDefault();
+                // Chrome requires returnValue to be set
                 e.returnValue = 'Data save nahi hua hai, page close karna chahte hain?';
                 return e.returnValue; 
             }
         });
 
-        let activeContainer = document.getElementById('birth-form-container');
-
-        function switchForm(formType, btnEl) {
+        // Sidebar Switching Logic
+        function switchForm(formType) {
             document.querySelectorAll('.form-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.sidebar-btn').forEach(el => el.classList.remove('active'));
             
             document.getElementById(formType + '-section').classList.add('active');
-            if (btnEl) btnEl.classList.add('active');
+            event.currentTarget.classList.add('active');
             
             activeContainer = document.getElementById(formType + '-form-container');
         }
 
-        function updateScaleUI() {
-            document.documentElement.style.setProperty('--form-scale', currentScale);
-            document.getElementById('scaleInput').value = Math.round(currentScale * 100);
-        }
+        let activeContainer = document.getElementById('birth-form-container'); // default
 
-        function changeScale(delta) {
-            currentScale = Math.min(1.05, Math.max(0.70, +(currentScale + delta).toFixed(2)));
-            updateScaleUI();
-        }
-
-        function setExactScale(val) {
-            let num = parseFloat(val);
-            if (isNaN(num)) num = 100;
-            num = Math.min(105, Math.max(70, num));
-            currentScale = +(num / 100).toFixed(2);
-            updateScaleUI();
-        }
-
-        function resetScale() {
-            currentScale = 1;
-            updateScaleUI();
-        }
-
+        // Font Size Controls (Applies to active form)
         function changeFontSize(step) {
             let currentFsStr = window.getComputedStyle(activeContainer).getPropertyValue('--input-fs');
-            let currentFontSize = parseFloat(currentFsStr) || 13;
+            let currentFontSize = parseInt(currentFsStr) || 15;
             currentFontSize += step;
             if(currentFontSize < 10) currentFontSize = 10;
-            if(currentFontSize > 18) currentFontSize = 18;
+            if(currentFontSize > 22) currentFontSize = 22;
             activeContainer.style.setProperty('--input-fs', currentFontSize + 'px');
         }
 
@@ -879,16 +1372,19 @@
                 });
             };
 
+            // Setup CNICs for Birth Form
             setupCNICInputs('b-father-cnic-wrap');
             setupCNICInputs('b-mother-cnic-wrap');
             setupCNICInputs('b-applicant-cnic-wrap');
             
+            // Setup CNICs for Death Form
             setupCNICInputs('d-dec-cnic-wrap');
             setupCNICInputs('d-father-cnic-wrap');
             setupCNICInputs('d-mother-cnic-wrap');
             setupCNICInputs('d-husband-cnic-wrap');
             setupCNICInputs('d-app-cnic-wrap');
 
+            // Apply Auto-slash Date Formatting
             document.querySelectorAll('.date-format').forEach(inputEl => {
                 inputEl.addEventListener('input', function (e) {
                     let val = e.target.value.replace(/\D/g, ''); 
@@ -900,7 +1396,9 @@
                 });
             });
 
+            // Spell Check Setup
             document.querySelectorAll('input[type="text"]').forEach(input => {
+                // Ignore purely numeric or non-dictionary fields
                 if (input.classList.contains('cnic-box') || 
                     input.classList.contains('date-format') || 
                     input.id.includes('serial') || 
@@ -909,6 +1407,7 @@
                     input.setAttribute('spellcheck', 'false');
                 } else {
                     input.setAttribute('spellcheck', 'true');
+                    // Set language based on class
                     if (input.classList.contains('english-text')) {
                         input.setAttribute('lang', 'en');
                     } else {
@@ -918,6 +1417,7 @@
             });
         });
 
+        // Backup only the ACTIVE form's data
         async function backupData() {
             const formData = {};
             const inputs = activeContainer.querySelectorAll('input');
@@ -954,7 +1454,7 @@
                     await writable.write(jsonStr);
                     await writable.close();
                     
-                    formChanged = false;
+                    formChanged = false; // Reset warning after successful backup
                     showSuccessFeedback(btn, 'Saved!');
                 } else {
                     const blob = new Blob([jsonStr], { type: "application/json" });
@@ -967,7 +1467,7 @@
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                     
-                    formChanged = false;
+                    formChanged = false; // Reset warning after successful backup
                     showSuccessFeedback(btn, 'Downloaded!');
                 }
             } catch (err) {
@@ -979,13 +1479,14 @@
             const originalText = btnElement.innerHTML;
             const originalBg = btnElement.className;
             btnElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> ${text}`;
-            btnElement.className = "bg-teal-600 text-white font-bold py-1.5 px-4 rounded shadow english-text flex items-center gap-2 transition cursor-pointer";
+            btnElement.className = "bg-teal-600 text-white font-bold py-2 px-4 rounded shadow english-text flex items-center gap-2 transition cursor-pointer";
             setTimeout(() => {
                 btnElement.innerHTML = originalText;
                 btnElement.className = originalBg;
             }, 2500);
         }
 
+        // Restore to the ACTIVE form
         function restoreData(event) {
             const file = event.target.files[0];
             if (!file) return;
