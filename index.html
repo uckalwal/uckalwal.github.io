@@ -320,6 +320,94 @@
             }
         }
     </style>
+<style>
+/* UC_A4_PRINT_FIX_V3: Full-size A4 printing without narrow/tiny text. */
+/* On-screen wrapper has no box, preserving the original form editing layout. */
+@media screen { .print-fit-viewport, .print-fit-inner {display:contents !important;} }
+/* All layout changes below apply ONLY when printing. */
+@page {size:A4 portrait; margin:4mm}
+@media print {
+  html, body {
+    width:202mm !important; height:auto !important; min-height:0 !important;
+    padding:0 !important; margin:0 !important; overflow:visible !important;
+    display:block !important; background:#fff !important;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  #sidebar, .controls-bar, .no-print {display:none !important;}
+  #main-content {
+    display:block !important; width:202mm !important;
+    height:auto !important; min-height:0 !important;
+    margin:0 !important; padding:0 !important; overflow:visible !important;
+  }
+  .form-section {display:none !important; margin:0 !important; padding:0 !important;}
+  .form-section.active {display:block !important;}
+  .form-container, #birth-form-container, #death-form-container {
+    display:block !important;
+    position:relative !important;
+    box-sizing:border-box !important;
+    width:202mm !important;
+    height:289mm !important;
+    min-height:289mm !important;
+    max-height:289mm !important;
+    margin:0 !important;
+    padding:7mm 9mm !important;
+    background:#fff !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+    break-after:avoid !important;
+    font-size:15px !important;
+    line-height:1.3 !important;
+  }
+  #birth-form-container {border:4px double #000 !important;}
+  #death-form-container {border:2px solid #000 !important;}
+  .print-fit-viewport {
+    position:absolute !important;
+    display:block !important;
+    box-sizing:border-box !important;
+    top:7mm !important; bottom:7mm !important;
+    right:9mm !important; left:9mm !important;
+    padding:0 !important; margin:0 !important;
+    overflow:hidden !important;
+    height:auto !important; width:auto !important;
+  }
+  .print-fit-inner {
+    display:flex !important;
+    box-sizing:border-box !important;
+    flex-direction:column !important;
+    position:relative !important;
+    top:auto !important; left:auto !important; right:auto !important;
+    width:100% !important;
+    margin:0 !important; padding:0 !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:visible !important;
+    zoom:1 !important;
+    transform:scaleY(var(--uc-print-scale-y, 1)) !important;
+    transform-origin:top center !important;
+    justify-content:var(--uc-print-justify,flex-start) !important;
+  }
+  .print-fit-inner > .form-list {margin-top:0 !important; margin-bottom:0 !important;}
+  .print-fit-inner[data-uc-print-fill="true"] > .form-list {
+    display:flex !important; flex-direction:column !important;
+    justify-content:space-between !important;
+    flex-grow:1 !important;
+  }
+  .print-fit-inner .form-row {margin-bottom:3px !important;}
+  .print-fit-inner .cnic-row {margin-bottom:3px !important;}
+  .print-fit-inner .form-list > li {margin-bottom:0 !important;}
+  .print-fit-inner p {line-height:1.35 !important;}
+  .print-fit-inner .mt-4 {margin-top:7px !important;}
+  .print-fit-inner .mt-2 {margin-top:4px !important;}
+  .print-fit-inner .mb-4 {margin-bottom:6px !important;}
+  .print-fit-inner .space-y-1 > :not([hidden]) ~ :not([hidden]) {margin-top:3px !important;}
+  .print-fit-inner .print-footer {display:block !important; margin-top:4px !important; padding-top:1px !important; padding-bottom:1px !important;}
+  .print-fit-inner .footer-box {padding-top:1px !important; padding-bottom:1px !important;}
+  .form-container input {background:transparent !important;}
+}
+
+</style>
 </head>
 <body>
 
@@ -980,5 +1068,77 @@
             event.target.value = ""; 
         }
     </script>
+<script>
+/* UC_A4_PRINT_FIX_V3: Keep native horizontal text size; fill A4 height. */
+(function () {
+  'use strict';
+  function wrapForms() {
+    var papers=document.querySelectorAll('#birth-form-container,#death-form-container');
+    for(var i=0;i<papers.length;i++){
+      var paper=papers[i];
+      if(paper.querySelector(':scope > .print-fit-viewport'))continue;
+      var viewport=document.createElement('div');
+      viewport.className='print-fit-viewport';
+      var inner=paper.querySelector(':scope > .print-fit-viewport > .print-fit-inner');
+      if(!inner){
+        inner=document.createElement('div'); inner.className='print-fit-inner';
+        while(paper.firstChild)inner.appendChild(paper.firstChild);
+      }
+      viewport.appendChild(inner); paper.appendChild(viewport);
+    }
+  }
+  function fitForm() {
+    wrapForms();
+    var paper=document.querySelector('.form-section.active > .form-container');
+    if(!paper)return;
+    var inner=paper.querySelector(':scope > .print-fit-viewport > .print-fit-inner');
+    if(!inner)return;
+    var viewport=paper.querySelector(':scope > .print-fit-viewport');
+    // Use a real A4 paper rectangle, not 100vh or the Chrome preview window.
+    // Inner is absolutely positioned, preventing pagination before it is scaled.
+    inner.style.setProperty('--uc-print-scale-y','1');
+    inner.style.setProperty('--uc-print-justify','flex-start');
+    inner.removeAttribute('data-uc-print-fill');
+    inner.style.height='auto';
+    var innerRect=inner.getBoundingClientRect();
+    var avail=viewport.getBoundingClientRect().height-3;
+    if(!isFinite(avail)||avail<=0)return;
+    var contentHeight=inner.scrollHeight;
+    // Include elements whose glyphs/input borders extend beyond the outer flow box.
+    var bottom=innerRect.top+contentHeight;
+    var nodes=inner.querySelectorAll('*');
+    for(var j=0;j<nodes.length;j++){
+      var node=nodes[j], style=getComputedStyle(node);
+      if(style.display==='none'||style.position==='fixed')continue;
+      var rect=node.getBoundingClientRect();
+      if(rect.width>0&&rect.height>0&&rect.bottom>bottom)bottom=rect.bottom;
+    }
+    contentHeight=Math.max(contentHeight,bottom-innerRect.top);
+    if(contentHeight <= avail) {
+      // If content already fits, distribute blank space between form sections.
+      // No font resizing/stretching at all.
+      inner.style.height=avail+'px';
+      inner.style.setProperty('--uc-print-justify','space-between');
+      inner.setAttribute('data-uc-print-fill','true');
+      paper.setAttribute('data-print-fit','normal / full A4');
+    } else {
+      // Only the vertical axis is compressed. Horizontal type size and A4 width
+      // remain 100%, unlike the V1/V2 zoom which made ALL text minuscule.
+      var ratio=Math.max(0.3,Math.min(1,(avail-3)/contentHeight));
+      inner.style.height=contentHeight+'px';
+      inner.style.setProperty('--uc-print-scale-y',String(ratio));
+      paper.setAttribute('data-print-fit','vertical '+ratio.toFixed(3));
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wrapForms);
+  else wrapForms();
+  window.addEventListener('beforeprint',fitForm);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    if(mq.addEventListener)mq.addEventListener('change',function(e){if(e.matches)fitForm();});
+  }
+})();
+
+</script>
 </body>
 </html>
