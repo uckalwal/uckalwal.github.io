@@ -827,55 +827,70 @@
 
         .print-footer { display: none; }
 
-/* A4 safe print layout - print only; keep original screen layout */
-@page { size: A4 portrait; margin: 5mm; }
+        /* V6: printer-safe A4 with preserved Urdu glyph proportions and no scaling.
+   Uses a real printed page (not viewport vh). CSS @page resets browser-added margins;
+   the physical 9mm inner offset leaves a safe area for office laser printers. */
+@page { size: A4 portrait; margin: 0; }
 @media print {
-  html,body { width:auto!important; min-height:0!important; height:auto!important; overflow:visible!important; margin:0!important; padding:0!important; display:block!important; background:#fff!important; -webkit-print-color-adjust:exact;print-color-adjust:exact; }
-  #sidebar,.controls-bar,.no-print {display:none!important}
-  #main-content {width:200mm!important; padding:0!important; margin:0!important; overflow:visible!important; display:block!important}
-  .form-section{display:none!important; margin:0!important; padding:0!important}
-  .form-section.active{display:block!important}
-  .form-container,#birth-form-container,#death-form-container {
-    box-sizing:border-box!important; width:200mm!important; min-height:287mm!important;
-    height:287mm!important; max-height:287mm!important; margin:0!important;
-    padding:4mm 6mm!important; box-shadow:none!important; overflow:visible!important;
-    break-inside:avoid!important; display:flex!important; flex-direction:column!important;
+  html, body { height: auto !important; width: 100% !important; min-height: 0 !important;
+    display: block !important; overflow: visible !important; padding: 0 !important;
+    margin: 0 !important; background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #sidebar, .controls-bar, .no-print { display: none !important; }
+  #main-content { width: 100% !important; max-width: none !important; margin: 0 !important;
+    padding: 0 !important; display: block !important; overflow: visible !important; }
+  .form-section { display:none!important; padding:0!important; margin:0!important; }
+  .form-section.active { display:block!important; }
+  .form-container, #birth-form-container, #death-form-container {
+    box-sizing: border-box !important; display:flex!important; flex-direction:column!important;
+    width: 190mm !important; min-height:0!important; height:272mm!important;
+    max-height:272mm!important; margin:10mm auto 0!important;
+    padding:3.5mm 6mm!important; border-color:#111!important;
+    overflow: visible!important; box-shadow:none!important;
     font-family:'Noto Nastaliq Urdu','Jameel Noori Nastaleeq',serif!important;
-    font-size:14px!important; line-height:1.72!important;
+    font-size:14px!important; line-height:1.77!important;
+    break-before:avoid!important; break-after:avoid!important; break-inside:avoid!important;
   }
-  #birth-form-container{border:3px double #000!important;justify-content:flex-start!important}
-  #death-form-container{border:2px solid #000!important;justify-content:flex-start!important}
-  .form-container > * {flex-shrink:0!important}
-  .form-container .form-list {display:flex!important;flex-direction:column!important;justify-content:space-between!important;flex:1 0 auto!important;margin:0 1.2rem 0 0!important;padding:0!important;list-style-type:decimal!important}
-  .form-container .form-list>li {display:list-item!important;min-height:0!important;margin:0 0 2px!important;break-inside:avoid!important;line-height:1.65!important}
-  .form-container .form-list>li>div:first-child {min-height:36px}
-  .form-container .form-list>li>div:not(:first-child){min-height:24px}
-  .form-container .line-input {min-height:0!important;height:25px!important;padding:0 2px!important; font-size:var(--input-fs)!important;line-height:1.5!important}
-  .form-container .cnic-box {width:20px!important;height:23px!important;padding:0!important;font-size:14px!important}
-  .form-container .form-row,.form-container .cnic-row {margin-bottom:1px!important;min-height:0!important;line-height:1.75!important}
-  .form-container p{line-height:1.96!important;font-size:13.25px!important;margin:0!important;}
-  .form-container .mt-4{margin-top:4px!important}
-  .form-container .mt-2{margin-top:3px!important}
-  .form-container .mb-4{margin-bottom:5px!important}
-  .form-container .mb-2{margin-bottom:3px!important}
-  .form-container .mt-1{margin-top:2px!important}
-  .form-container .mb-1{margin-bottom:2px!important}
-  .form-container .space-y-1>:not([hidden])~:not([hidden]){margin-top:3px!important}
-  .form-container .print-footer{width:100%!important;text-align:center!important;display:block!important;flex-shrink:0!important;margin-top:auto!important;padding:4px 0 0!important;line-height:1.5!important}
-  .form-container .footer-box{padding:1px 10px!important;font-size:12px!important}
-  #birth-form-container>.text-center:first-child{min-height:73px!important;flex-shrink:0!important}
-  #birth-form-container>.text-center:first-child h1{margin-bottom:4px!important;line-height:1.8!important;font-size:17px!important}
-  #birth-form-container>div.mt-2 {flex:0 0 auto!important;margin-top:6px!important}
-  #death-form-container > div:first-child{min-height:103px!important;flex-shrink:0!important}
-  #death-form-container > div:first-child h1{line-height:1.8!important;margin:2px 0 7px!important;font-size:17px!important}
-  #death-form-container>.flex-grow {flex:0 0 auto!important; min-height:0!important;justify-content:flex-start!important;}
-  #death-form-container {padding:3.5mm 6mm!important;}
-  #death-form-container p{font-size:12.75px!important;line-height:1.95!important;}
-  #death-form-container .text-\[14px\]{font-size:13.25px!important}
-  #death-form-container .text-lg{font-size:15px!important}
-  .form-container .leading-snug{line-height:1.85!important}
+  #birth-form-container { border:3px double #000!important; justify-content:space-between!important; }
+  #death-form-container { border:2px solid #000!important; justify-content:space-between!important; }
+  .form-container > * { flex-shrink:0!important; }
+  .form-container .form-list {display:flex!important; flex-direction:column!important;
+    justify-content:space-between!important; flex:1 1 auto!important; min-height:0!important;
+    margin:0 1.2rem 0 0!important; padding:0!important;
+    list-style-type:decimal!important;}
+  .form-container .form-list>li {display:list-item!important; min-height:0!important;
+    line-height:1.8!important; margin:0!important; break-inside:avoid!important;}
+  .form-container .form-list>li>div:first-child { min-height:29px!important; }
+  .form-container .form-list>li>div:not(:first-child) {min-height:22px!important;}
+  .form-container .line-input { height:22px!important; min-height:0!important;
+    padding:0 2px!important; line-height:1.5!important; font-size:var(--input-fs)!important; }
+  .form-container .cnic-box {width:19px!important;height:22px!important;padding:0!important;font-size:14px!important;}
+  .form-container .form-row,.form-container .cnic-row { margin-bottom:0!important; min-height:0!important; line-height:1.8!important;}
+  .form-container p { font-size:13px!important; line-height:1.85!important; margin:0!important; }
+  .form-container .mt-4 { margin-top:4px!important; }
+  .form-container .mt-2 { margin-top:2px!important; }
+  .form-container .mb-4 { margin-bottom:5px!important; }
+  .form-container .mb-2 { margin-bottom:3px!important; }
+  .form-container .mt-1 { margin-top:2px!important; }
+  .form-container .mb-1 { margin-bottom:2px!important; }
+  .form-container .space-y-1>:not([hidden])~:not([hidden]) {margin-top:2px!important;}
+  .form-container .print-footer { display:block!important; width:100%!important;
+    text-align:center!important; flex-shrink:0!important; margin-top:auto!important;
+    padding:3px 0 0!important; line-height:1.5!important;}
+  .form-container .footer-box { padding:1px 10px!important;font-size:12px!important; }
+  #birth-form-container>.text-center:first-child{ min-height:68px!important; flex-shrink:0!important; }
+  #birth-form-container>.text-center:first-child h1 {margin-bottom:3px!important;line-height:1.7!important;font-size:17px!important;}
+  #birth-form-container>div.mt-2 {flex:0 0 auto!important;margin-top:5px!important;}
+  #death-form-container > div:first-child { min-height:85px!important; flex-shrink:0!important; }
+  #death-form-container > div:first-child h1 {line-height:1.7!important;margin:2px 0 5px!important;font-size:17px!important;}
+  #death-form-container>.flex-grow {flex:1 1 auto!important;min-height:0!important;justify-content:space-between!important;}
+  #death-form-container p {font-size:12.5px!important;line-height:1.85!important;}
+  #death-form-container .text-\[14px\] { font-size:13px!important; }
+  #death-form-container .text-lg {font-size:15px!important;}
+  /* Form B: keep category/permission rows clear of the declaration underneath. */
+  #death-form-container>.flex-grow>div:nth-last-child(4),
+  #death-form-container>.flex-grow>div:nth-last-child(3) {min-height:35px!important;}
+  .form-container .leading-snug {line-height:1.85!important;}
 }
-
 </style>
 </head>
 <body>
